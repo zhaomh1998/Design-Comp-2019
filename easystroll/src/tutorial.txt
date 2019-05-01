@@ -1,0 +1,28 @@
+About react components:
+EXAMPLE:
+
+const element = (
+	<h1 className="greeting" >
+		Hello World!
+	</h1>
+);
+
+The element above is mapped to js object via JSX:
+const element = React.createElement(
+	'h1',
+	{classname: 'greeting'},
+	'Hello, world!'
+);
+
+This then this object gets translated to a js object
+
+const element = {
+	type: 'h1',
+	props:{
+		className: 'greeting',
+		children: 'Hello, world!'
+	}
+};
+
+*****************************************************
+Creating costume react components:
