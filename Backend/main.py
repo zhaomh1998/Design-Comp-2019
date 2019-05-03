@@ -26,16 +26,17 @@ walker = db.reference('walker')
 
 @app.route('/')
 def push_test():
-    fb_resp = walker.child('time').update({'TestTime': time.time()})
+    # fb_resp = walker.child('time').update({'TestTime': time.time()})
     return flask.jsonify(walker.get())
 
 
 @app.route('/gps', methods=['GET'])
 def gps_update_test():
+    id = flask.request.args.get('ccid')
     lat = flask.request.args.get('lat')
     lon = flask.request.args.get('lon')
 
-    walker.child('gps').update({'lat': float(lat), 'lon': float(lon)})
+    walker.child(id).update({'lat': float(lat), 'lon': float(lon), 'updated': time.time()})
     return flask.jsonify(walker.get())
 
 
