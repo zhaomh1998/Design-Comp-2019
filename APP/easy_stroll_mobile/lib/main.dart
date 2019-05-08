@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'ui.dart';
+import 'signin.dart';
+import 'auth.dart';
 
 void main() {
   runApp(new MyApp());
@@ -42,14 +44,29 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(children: <Widget>[
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: RaisedButton(
-                child: const Text('Test', semanticsLabel: 'TestLbl'),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      new MaterialPageRoute(
-                          builder: (context) => new MainPage()));
-                },
+              child: Column(
+                children: <Widget>[
+                  RaisedButton(
+                    child: const Text('MainPage'),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new MainPage()));
+                    },
+                  ),
+                  RaisedButton(
+                    child: const Text('TestAuth'),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                          builder: (context) => new LoginSignUpPage(auth: new Auth(), onSignedIn: () {debugPrint("SignedInWithID");},)
+                        )
+                      );
+                    },
+                  ), // Raised Button
+                ], // Column
               ),
             ),
           ]),

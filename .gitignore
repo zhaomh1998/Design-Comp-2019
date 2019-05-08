@@ -2,3 +2,4 @@ Backend/ESBackendEnv
 Backend/.idea
 Backend/credentials/*.json
 Backend/example
+google-services.json
