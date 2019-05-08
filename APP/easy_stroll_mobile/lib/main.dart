@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'ui.dart';
-import 'signin.dart';
-import 'auth.dart';
+import 'ui/map.dart';
+import 'ui/signin.dart';
+import 'util/auth.dart';
 
 void main() {
   runApp(new MyApp());
@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.push(
                           context,
                           new MaterialPageRoute(
-                              builder: (context) => new MainPage()));
+                              builder: (context) => new MapPage()));
                     },
                   ),
                   RaisedButton(

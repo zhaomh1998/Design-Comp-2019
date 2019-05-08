@@ -1,0 +1,22 @@
+Go to https://console.firebase.google.com and register new project.
+
+For android, click the android icon. Enter your package name which can be found in android/app/src/main/AndroidManifest.xml
+
+Download the config file which is google-services.json (Android) and put it under this folder.
+
+
+In the /android/app/build.gradle add the following to the last line of the file.
+
+apply plugin: 'com.google.gms.google-services'
+
+
+In android/build.gradle, inside the buildscript tag, add new dependency.
+
+buildscript {
+   repositories {
+      //...
+}
+dependencies {
+   //...
+   classpath 'com.google.gms:google-services:3.2.1'
+}
