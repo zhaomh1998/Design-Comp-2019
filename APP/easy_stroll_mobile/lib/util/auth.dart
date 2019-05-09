@@ -1,6 +1,7 @@
-
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 abstract class BaseAuth {
   Future<String> signIn(String email, String password);
@@ -50,4 +51,24 @@ class Auth implements BaseAuth {
     return user.isEmailVerified;
   }
 
+}
+
+
+void saveCredential(email, pswd, uid) async {
+  final storage = new FlutterSecureStorage();
+  try {
+    await storage.write(key: "email", value: email);
+    await storage.write(key: "pswd", value: pswd);
+    await storage.write(key: "uid", value: uid);
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setBool('doAutoLogin', true);
+    }
+    catch(e) {
+      print("Caught error during storing config \'doAutoLogin\': $e");
+    }
+  }
+  catch(e) {
+    print("Caught error during storing emails and passwords $e");
+  }
 }

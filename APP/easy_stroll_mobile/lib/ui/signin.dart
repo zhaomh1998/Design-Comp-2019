@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../util/auth.dart';
 
+
+
 class LoginSignUpPage extends StatefulWidget {
   LoginSignUpPage({this.auth, this.onSignedIn});
 
@@ -19,6 +21,7 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
   String _email;
   String _password;
   String _errorMessage;
+  bool _doSaveCredential = false;
 
   // Initial form is login form
   FormMode _formMode = FormMode.LOGIN;
@@ -53,20 +56,21 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
 ////          _showVerifyEmailSentDialog();
           print('Signed up user: $userId');
         }
+        if(_doSaveCredential)
+          saveCredential(_email, _password, userId);
         setState(() {
           _isLoading = false;
         });
 
         if (userId.length > 0 && userId != null && _formMode == FormMode.LOGIN) {
           widget.onSignedIn();
-          setState(() {
-            _errorMessage = "Successfully Signed In Message!";
-          });
+          Navigator.pop(context);
         }
 
       } catch (e) {
         print('Error: $e');
         setState(() {
+          _isLoading = false;
           if (_isIos) {
             _errorMessage = e.details;
           } else
@@ -156,6 +160,7 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
               _showEmailInput(),
               _showPasswordInput(),
               _showPrimaryButton(),
+              _showRememberMe(),
               _showSecondaryButton(),
               _showErrorMessage(),
             ],
@@ -232,6 +237,25 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
     );
   }
 
+  Widget _showRememberMe() {
+    return Row(
+      children: <Widget>[
+        Expanded(
+            child: Container()),
+        Expanded(
+          child: SwitchListTile(
+            title: const Text("Remember"),
+            value: _doSaveCredential,
+            onChanged: (bool onOff) {
+              setState(() {
+                _doSaveCredential = !_doSaveCredential;
+              });
+            },
+          ),
+        ),
+      ],
+    );
+  }
   Widget _showSecondaryButton() {
     return new FlatButton(
       child: _formMode == FormMode.LOGIN

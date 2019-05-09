@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'ui/map.dart';
 import 'ui/signin.dart';
 import 'util/auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 void main() {
   runApp(new MyApp());
@@ -29,6 +31,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String _message = "";
   @override
   initState() {
     super.initState();
@@ -56,20 +59,50 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                   ),
                   RaisedButton(
-                    child: const Text('TestAuth'),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                          builder: (context) => new LoginSignUpPage(auth: new Auth(), onSignedIn: () {debugPrint("SignedInWithID");},)
-                        )
-                      );
-                    },
+                    child: const Text('LogIn'),
+                    onPressed: () {_loginSaved(context);},
+                  ), // Raised Button
+                  RaisedButton(
+                    child: const Text('Clear auto login'),
+                    onPressed: () {_clearAutoLogin();},
+                  ), // Raised Button
+                  RaisedButton(
+                    child: const Text('Clear msg'),
+                    onPressed: () {setState(() {
+                      _message = "";
+                    });},
                   ), // Raised Button
                 ], // Column
               ),
             ),
+            Text(_message),
           ]),
         ));
   }
+
+
+  _loginSaved(context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool autoLogin = prefs.getBool('doAutoLogin') ?? false;
+    if(autoLogin) {
+      setState(() {
+        _message = "Signing in from saved credentials!";
+      });
+    }
+    else {
+      Navigator.push(
+          context,
+          new MaterialPageRoute(
+              builder: (context) => new LoginSignUpPage(auth: new Auth(), onSignedIn: () {debugPrint("SignedInWithID");},)
+          )
+      );
+    }
+//  await prefs.setInt('counter', counter);
+  }
+
+  _clearAutoLogin() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('doAutoLogin', false);
+  }
 }
+
