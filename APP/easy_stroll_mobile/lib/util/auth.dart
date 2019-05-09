@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -78,4 +79,33 @@ void saveCredential(email, pswd, uid) async {
   catch(e) {
     print("Caught error during storing emails and passwords $e");
   }
+}
+
+void saveLoc(LatLng pos) async {
+  final storage = new FlutterSecureStorage();
+  try {
+    await storage.write(key: "lat", value: pos.latitude.toString());
+    await storage.write(key: "lon", value: pos.longitude.toString());
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('hasStoredLocation', true);
+  }
+  catch(e) {
+    print("Caught error during storing location: $e");
+  }
+}
+
+Future<LatLng> loadLoc() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  if(prefs.getBool('hasStoredLocation') ?? false) {
+    try {
+      final storage = new FlutterSecureStorage();
+      String latStr = await storage.read(key: "lat");
+      String lonStr = await storage.read(key: "lon");
+      return LatLng(double.parse(latStr), double.parse(lonStr));
+    }
+    catch(e) {
+      print("Caught error during storing location: $e");
+    }
+  }
+
 }

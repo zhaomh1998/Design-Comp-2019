@@ -3,7 +3,7 @@ import 'ui/map.dart';
 import 'ui/signin.dart';
 import 'util/auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'util/db.dart';
 
 void main() {
   runApp(new MyApp());
@@ -67,6 +67,18 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {_clearAutoLogin();},
                   ), // Clear Auto Log In
                   RaisedButton(
+                    child: const Text('Get DB'),
+                    onPressed: () {_testGetDB();},
+                  ), // Test get DB all
+                  RaisedButton(
+                    child: const Text('Get Pos from DB'),
+                    onPressed: () {_testGetPos();},
+                  ), // Test get Pos
+                  RaisedButton(
+                    child: const Text('Get Pos from Storage'),
+                    onPressed: () {_testGetSavedPos();},
+                  ), // Test get Pos
+                  RaisedButton(
                     child: const Text('Clear msg'),
                     onPressed: () {setState(() {
                       _message = "";
@@ -106,5 +118,28 @@ class _MyHomePageState extends State<MyHomePage> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setBool('doAutoLogin', false);
   }
+  _testGetDB() async {
+    EasyStrollDB db = new EasyStrollDB();
+    String db_data = await db.getAll();
+    setState(() {
+      _message = db_data;
+    });
+  }
+  _testGetPos() async {
+    EasyStrollDB db = new EasyStrollDB();
+    var pos = await db.getPos('8944501810180175785f');
+    saveLoc(pos);
+    setState(() {
+      _message = pos.toString();
+    });
+  }
+  _testGetSavedPos() async {
+    var pos = await loadLoc();
+    setState(() {
+      _message = pos.toString();
+    });
+  }
 }
+
+
 

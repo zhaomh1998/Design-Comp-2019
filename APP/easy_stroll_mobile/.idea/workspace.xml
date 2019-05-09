@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5f4684f-b517-4f84-a6d9-3ead78fd7e5d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/util/db.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ui/map.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/map.dart" afterDir="false" />
@@ -22,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1">
-              <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
+            <state relative-caret-position="220">
+              <caret line="87" column="16" lean-forward="true" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="16" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
                 <element signature="e#187#213#0" />
@@ -47,11 +50,16 @@
                 <element signature="e#1610#1619#0" />
                 <element signature="e#1766#1894#0" />
                 <element signature="e#1805#1814#0" />
+                <element signature="e#1966#2102#0" />
+                <element signature="e#2160#2281#0" />
+                <element signature="e#2331#2454#0" />
                 <element signature="e#1975#2111#0" />
                 <element signature="e#2014#2034#0" />
                 <element signature="e#2242#2252#0" />
                 <element signature="e#2519#2634#0" />
-                <marker date="1557362537650" expanded="true" signature="1083:2156" ph="..." />
+                <element signature="e#3238#3254#0" />
+                <element signature="e#3440#3585#0" />
+                <marker date="1557365926663" expanded="true" signature="1105:2718" ph="..." />
               </folding>
             </state>
           </provider>
@@ -60,8 +68,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/ui/map.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="308">
+              <caret line="48" column="53" selection-start-line="48" selection-start-column="53" selection-end-line="48" selection-end-column="53" />
               <folding>
                 <element signature="n#!!block;n#MapPage#0" />
                 <element signature="e#193#336#0" />
@@ -175,22 +183,50 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="74">
+              <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/util/auth.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="57" column="50" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
+            <state relative-caret-position="57">
+              <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
               <folding>
-                <element signature="e#1#21#0" expanded="true" />
+                <element signature="n#!!block;n#BaseAuth#0" />
+                <element signature="e#510#657#0" />
+                <element signature="e#714#865#0" />
+                <element signature="e#907#994#0" />
+                <element signature="e#1021#1068#0" />
+                <element signature="e#1109#1213#0" />
+                <element signature="e#1248#1351#0" />
+                <element signature="e#1512#1780#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+        <entry file="file://$PROJECT_DIR$/lib/util/db.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-157">
-              <caret line="10" column="88" selection-start-line="10" selection-start-column="88" selection-end-line="10" selection-end-column="88" />
+            <state relative-caret-position="381">
+              <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#58#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database-3.0.0/lib/src/event.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="139">
+              <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -250,10 +286,11 @@
         <option value="$PROJECT_DIR$/lib/signin.dart" />
         <option value="$PROJECT_DIR$/android/gradle.properties" />
         <option value="$PROJECT_DIR$/lib/map.dart" />
-        <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/android/app/build.gradle" />
         <option value="$PROJECT_DIR$/lib/ui/map.dart" />
         <option value="$PROJECT_DIR$/lib/ui/signin.dart" />
+        <option value="$PROJECT_DIR$/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/lib/util/db.dart" />
         <option value="$PROJECT_DIR$/lib/util/auth.dart" />
         <option value="$PROJECT_DIR$/lib/main.dart" />
       </list>
@@ -277,6 +314,11 @@
             <path>
               <item name="easy_stroll_mobile" type="b2602c69:ProjectViewProjectNode" />
               <item name="easy_stroll_mobile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="easy_stroll_mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="easy_stroll_mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="easy_stroll_mobile" type="b2602c69:ProjectViewProjectNode" />
@@ -358,12 +400,12 @@
       <workItem from="1557276963759" duration="1422000" />
       <workItem from="1557283590250" duration="269000" />
       <workItem from="1557284035280" duration="5683000" />
-      <workItem from="1557344943554" duration="9827000" />
+      <workItem from="1557344943554" duration="12725000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28495000" />
+    <option name="totallyTimeSpent" value="31393000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -376,6 +418,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2074392" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -386,7 +429,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32923833" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.42874694" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.45700246" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5896806" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -541,10 +584,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+    <entry file="file://$PROJECT_DIR$/android/app/google-services.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-157">
-          <caret line="10" column="88" selection-start-line="10" selection-start-column="88" selection-end-line="10" selection-end-column="88" />
+        <state relative-caret-position="-419" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/util/db.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database-3.0.0/lib/src/event.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -634,10 +692,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/ui/map.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="308">
+          <caret line="48" column="53" selection-start-line="48" selection-start-column="53" selection-end-line="48" selection-end-column="53" />
           <folding>
             <element signature="n#!!block;n#MapPage#0" />
             <element signature="e#193#336#0" />
@@ -663,18 +728,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/util/auth.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="57" column="50" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
+        <state relative-caret-position="57">
+          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
           <folding>
-            <element signature="e#1#21#0" expanded="true" />
+            <element signature="n#!!block;n#BaseAuth#0" />
+            <element signature="e#510#657#0" />
+            <element signature="e#714#865#0" />
+            <element signature="e#907#994#0" />
+            <element signature="e#1021#1068#0" />
+            <element signature="e#1109#1213#0" />
+            <element signature="e#1248#1351#0" />
+            <element signature="e#1512#1780#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
+        <state relative-caret-position="220">
+          <caret line="87" column="16" lean-forward="true" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="16" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="e#187#213#0" />
@@ -698,11 +770,16 @@
             <element signature="e#1610#1619#0" />
             <element signature="e#1766#1894#0" />
             <element signature="e#1805#1814#0" />
+            <element signature="e#1966#2102#0" />
+            <element signature="e#2160#2281#0" />
+            <element signature="e#2331#2454#0" />
             <element signature="e#1975#2111#0" />
             <element signature="e#2014#2034#0" />
             <element signature="e#2242#2252#0" />
             <element signature="e#2519#2634#0" />
-            <marker date="1557362537650" expanded="true" signature="1083:2156" ph="..." />
+            <element signature="e#3238#3254#0" />
+            <element signature="e#3440#3585#0" />
+            <marker date="1557365926663" expanded="true" signature="1105:2718" ph="..." />
           </folding>
         </state>
       </provider>
