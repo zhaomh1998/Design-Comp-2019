@@ -57,43 +57,45 @@ class _MyHomePageState extends State<MyHomePage> {
                           new MaterialPageRoute(
                               builder: (context) => new MapPage()));
                     },
-                  ),
+                  ), // Map Page
                   RaisedButton(
                     child: const Text('LogIn'),
-                    onPressed: () {_loginSaved(context);},
-                  ), // Raised Button
+                    onPressed: () {_login(context);},
+                  ), // Log In Page
                   RaisedButton(
                     child: const Text('Clear auto login'),
                     onPressed: () {_clearAutoLogin();},
-                  ), // Raised Button
+                  ), // Clear Auto Log In
                   RaisedButton(
                     child: const Text('Clear msg'),
                     onPressed: () {setState(() {
                       _message = "";
                     });},
-                  ), // Raised Button
+                  ), // Clear Msg
                 ], // Column
               ),
             ),
-            Text(_message),
+            Text(_message), // Msg
           ]),
         ));
   }
 
 
-  _loginSaved(context) async {
+  _login(context) async {
+    Auth fbAuth = new Auth();
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool autoLogin = prefs.getBool('doAutoLogin') ?? false;
     if(autoLogin) {
+      String uid = await fbAuth.autoSignIn();
       setState(() {
-        _message = "Signing in from saved credentials!";
+        _message = "Signed In with id: $uid";
       });
     }
     else {
       Navigator.push(
           context,
           new MaterialPageRoute(
-              builder: (context) => new LoginSignUpPage(auth: new Auth(), onSignedIn: () {debugPrint("SignedInWithID");},)
+              builder: (context) => new LoginSignUpPage(auth: fbAuth, onSignedIn: () {debugPrint("SignedInWithID");},)
           )
       );
     }

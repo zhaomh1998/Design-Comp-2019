@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5f4684f-b517-4f84-a6d9-3ead78fd7e5d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ui/map.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/map.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/signin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/signin.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/util/auth.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/util/auth.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,13 +19,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="71" column="36" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
+            <state relative-caret-position="-1">
+              <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#187#213#0" />
+                <element signature="n#!!block;n#MyApp#0" />
+                <element signature="e#302#512#0" />
+                <element signature="e#330#507#0" />
+                <element signature="e#386#431#0" />
+                <element signature="e#459#500#0" />
+                <element signature="n#!!block;n#MyHomePage#0" />
+                <element signature="e#788#816#0" />
+                <element signature="e#920#972#0" />
+                <element signature="e#947#961#0" />
+                <element signature="e#1054#1062#0" />
+                <element signature="e#1128#1144#0" />
+                <element signature="e#1177#1185#0" />
+                <element signature="e#1241#1563#0" />
+                <element signature="e#1256#1268#0" />
+                <element signature="e#1342#1495#0" />
+                <element signature="e#1426#1494#0" />
+                <element signature="e#1571#1699#0" />
+                <element signature="e#1610#1619#0" />
+                <element signature="e#1766#1894#0" />
+                <element signature="e#1805#1814#0" />
+                <element signature="e#1975#2111#0" />
+                <element signature="e#2014#2034#0" />
+                <element signature="e#2242#2252#0" />
+                <element signature="e#2519#2634#0" />
+                <marker date="1557362537650" expanded="true" signature="1083:2156" ph="..." />
               </folding>
             </state>
           </provider>
@@ -41,26 +60,43 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/ui/map.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="53" column="20" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
+            <state relative-caret-position="126">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="n#!!block;n#MapPage#0" />
+                <element signature="e#193#336#0" />
+                <element signature="e#218#331#0" />
+                <element signature="e#244#294#0" />
+                <element signature="e#262#293#0" />
+                <element signature="n#!!block;n#GoogleMaps#0" />
+                <element signature="e#606#671#0" />
+                <element signature="e#722#1101#0" />
+                <element signature="e#768#777#0" />
+                <element signature="e#796#1096#0" />
+                <element signature="e#819#1089#0" />
+                <element signature="e#935#1080#0" />
+                <element signature="e#1023#1069#0" />
+                <element signature="e#1051#1056#0" />
+                <element signature="e#1156#1438#0" />
+                <element signature="e#1274#1424#0" />
+                <element signature="e#1298#1415#0" />
+                <element signature="e#1350#1360#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/ui/signin.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="656">
-              <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
+            <state relative-caret-position="159">
+              <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
               <folding>
-                <element signature="n#!!block;n#LoginSignUpPage#0" />
                 <element signature="n#FormMode#0" />
                 <element signature="e#434#445#0" />
                 <element signature="e#703#837#0" />
                 <element signature="e#1276#1324#0" />
+                <element signature="e#1743#1752#0" />
                 <element signature="e#1965#2041#0" />
                 <element signature="e#2072#2197#0" />
                 <element signature="e#2227#2351#0" />
@@ -74,6 +110,13 @@
                 <element signature="e#2755#2890#0" />
                 <element signature="e#2798#2834#0" />
                 <element signature="e#2858#2884#0" />
+                <element signature="e#3008#3578#0" />
+                <element signature="e#3156#3557#0" />
+                <element signature="e#3183#3206#0" />
+                <element signature="e#3235#3289#0" />
+                <element signature="e#3346#3533#0" />
+                <element signature="e#3377#3388#0" />
+                <element signature="e#3486#3495#0" />
                 <element signature="e#3520#3978#0" />
                 <element signature="e#3672#4135#0" />
                 <element signature="e#3579#3585#0" />
@@ -134,8 +177,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/util/auth.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="36" column="16" lean-forward="true" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+            <state relative-caret-position="305">
+              <caret line="57" column="50" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
               <folding>
                 <element signature="e#1#21#0" expanded="true" />
               </folding>
@@ -185,6 +228,7 @@
       <find>build</find>
       <find>submit</find>
       <find>_sav</find>
+      <find>signIn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -209,9 +253,9 @@
         <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/android/app/build.gradle" />
         <option value="$PROJECT_DIR$/lib/ui/map.dart" />
-        <option value="$PROJECT_DIR$/lib/main.dart" />
-        <option value="$PROJECT_DIR$/lib/util/auth.dart" />
         <option value="$PROJECT_DIR$/lib/ui/signin.dart" />
+        <option value="$PROJECT_DIR$/lib/util/auth.dart" />
+        <option value="$PROJECT_DIR$/lib/main.dart" />
       </list>
     </option>
   </component>
@@ -314,12 +358,12 @@
       <workItem from="1557276963759" duration="1422000" />
       <workItem from="1557283590250" duration="269000" />
       <workItem from="1557284035280" duration="5683000" />
-      <workItem from="1557344943554" duration="8348000" />
+      <workItem from="1557344943554" duration="9827000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27016000" />
+    <option name="totallyTimeSpent" value="28495000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -332,7 +376,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2074392" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -343,7 +386,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32923833" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.095823094" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.42874694" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5896806" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -505,46 +548,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/util/auth.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="36" column="16" lean-forward="true" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-          <folding>
-            <element signature="e#1#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ui/map.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="53" column="20" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="71" column="36" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/ui/signin.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
+        <state relative-caret-position="159">
+          <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
           <folding>
-            <element signature="n#!!block;n#LoginSignUpPage#0" />
             <element signature="n#FormMode#0" />
             <element signature="e#434#445#0" />
             <element signature="e#703#837#0" />
             <element signature="e#1276#1324#0" />
+            <element signature="e#1743#1752#0" />
             <element signature="e#1965#2041#0" />
             <element signature="e#2072#2197#0" />
             <element signature="e#2227#2351#0" />
@@ -558,6 +571,13 @@
             <element signature="e#2755#2890#0" />
             <element signature="e#2798#2834#0" />
             <element signature="e#2858#2884#0" />
+            <element signature="e#3008#3578#0" />
+            <element signature="e#3156#3557#0" />
+            <element signature="e#3183#3206#0" />
+            <element signature="e#3235#3289#0" />
+            <element signature="e#3346#3533#0" />
+            <element signature="e#3377#3388#0" />
+            <element signature="e#3486#3495#0" />
             <element signature="e#3520#3978#0" />
             <element signature="e#3672#4135#0" />
             <element signature="e#3579#3585#0" />
@@ -610,6 +630,79 @@
             <element signature="e#7522#7559#0" />
             <element signature="e#7587#7680#0" />
             <element signature="e#7642#7679#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/ui/map.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="n#!!block;n#MapPage#0" />
+            <element signature="e#193#336#0" />
+            <element signature="e#218#331#0" />
+            <element signature="e#244#294#0" />
+            <element signature="e#262#293#0" />
+            <element signature="n#!!block;n#GoogleMaps#0" />
+            <element signature="e#606#671#0" />
+            <element signature="e#722#1101#0" />
+            <element signature="e#768#777#0" />
+            <element signature="e#796#1096#0" />
+            <element signature="e#819#1089#0" />
+            <element signature="e#935#1080#0" />
+            <element signature="e#1023#1069#0" />
+            <element signature="e#1051#1056#0" />
+            <element signature="e#1156#1438#0" />
+            <element signature="e#1274#1424#0" />
+            <element signature="e#1298#1415#0" />
+            <element signature="e#1350#1360#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/util/auth.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="57" column="50" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
+          <folding>
+            <element signature="e#1#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#187#213#0" />
+            <element signature="n#!!block;n#MyApp#0" />
+            <element signature="e#302#512#0" />
+            <element signature="e#330#507#0" />
+            <element signature="e#386#431#0" />
+            <element signature="e#459#500#0" />
+            <element signature="n#!!block;n#MyHomePage#0" />
+            <element signature="e#788#816#0" />
+            <element signature="e#920#972#0" />
+            <element signature="e#947#961#0" />
+            <element signature="e#1054#1062#0" />
+            <element signature="e#1128#1144#0" />
+            <element signature="e#1177#1185#0" />
+            <element signature="e#1241#1563#0" />
+            <element signature="e#1256#1268#0" />
+            <element signature="e#1342#1495#0" />
+            <element signature="e#1426#1494#0" />
+            <element signature="e#1571#1699#0" />
+            <element signature="e#1610#1619#0" />
+            <element signature="e#1766#1894#0" />
+            <element signature="e#1805#1814#0" />
+            <element signature="e#1975#2111#0" />
+            <element signature="e#2014#2034#0" />
+            <element signature="e#2242#2252#0" />
+            <element signature="e#2519#2634#0" />
+            <marker date="1557362537650" expanded="true" signature="1083:2156" ph="..." />
           </folding>
         </state>
       </provider>

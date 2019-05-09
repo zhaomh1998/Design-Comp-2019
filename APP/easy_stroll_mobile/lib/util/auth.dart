@@ -51,6 +51,13 @@ class Auth implements BaseAuth {
     return user.isEmailVerified;
   }
 
+  Future<String> autoSignIn() async {
+    final storage = new FlutterSecureStorage();
+      String email = await storage.read(key: "email");
+      String password = await storage.read(key: "pswd");
+      String uid = await storage.read(key: "uid");
+      return signIn(email, password);
+  }
 }
 
 
