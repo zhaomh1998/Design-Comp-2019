@@ -1,62 +1,94 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import '../util/auth.dart';
+import '../util/db.dart';
 
-class MapPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(title: const Text("Easy Stroll Main Page Title")),
-      body: new GoogleMaps(),
-    );
-  }
-}
-
-class GoogleMaps extends StatefulWidget {
-  GoogleMaps({Key key}) : super(key: key);
+class MapPage extends StatefulWidget {
+  MapPage({Key key}) : super(key: key);
 
   @override
-  _GoogleMaps createState() => new _GoogleMaps();
+  _MapPageStates createState() => new _MapPageStates();
 }
 
-class _GoogleMaps extends State<GoogleMaps> {
+class _MapPageStates extends State<MapPage> {
   GoogleMapController mapController;
-
+  LatLng _loc = LatLng(0,0);
   @override
   void initState() {
-    // TODO: Init var stuff here ...
+    _updateMapLoc();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    //buildMap();
-    var mq = MediaQuery.of(context);
-    return Center(
-      child: SizedBox(
-        width: mq.size.width,
-        height: mq.size.height,
-//        child: Text("Hi")
-        child: GoogleMap(
-          onMapCreated: _onMapCreated,
-          initialCameraPosition: CameraPosition(
-            target: LatLng(0,0),
-          ),
-        ),
-      ),
+    return Scaffold(
+      appBar: AppBar(title: const Text("Easy Stroll Map Page Title")),
+      body: _buildBody(),
     );
   }
 
+  Widget _buildBody() {
+    return Column(
+      children: <Widget>[
+        Expanded(flex: 2, child: _buildGoogleMap(),),
+        Expanded(child: _buildControl())
+      ],
+    );
+}
+
+  Widget _buildControl() {
+    return ListView(
+      children: <Widget>[Text(_loc.toString())],
+    );
+  }
+  Widget _buildGoogleMap() {
+    return GoogleMap(
+      onMapCreated: _onMapCreated,
+      initialCameraPosition: CameraPosition(
+        target: LatLng(32.88, -117.23),
+        zoom: 12.0,
+      ),
+    );
+  }
   void _onMapCreated(GoogleMapController controller) {
     setState(() {
       mapController = controller;
-      mapController.animateCamera(CameraUpdate.newCameraPosition(
-        CameraPosition(
-          bearing: 270.0,
-          target: LatLng(100, 100),
-          tilt: 30.0,
-          zoom: 17.0,
-        ),
-      ));
+//      mapController.animateCamera(CameraUpdate.newCameraPosition(
+//        CameraPosition(
+//          bearing: 0.0,
+//          target: _loc,
+//          tilt: 0.0,
+//          zoom: 18.0,
+//        ),
+//      )
+//      );
     });
   }
+
+  Future<void> _updateMapLoc() async {
+//    var pos = await loadLoc();
+    EasyStrollDB db = new EasyStrollDB();
+    var pos = await db.getPos('8944501810180175785f');
+    setState(() {
+      _loc = pos;
+      mapController.animateCamera(CameraUpdate.newCameraPosition(
+        CameraPosition(
+          bearing: 0.0,
+          target: pos,
+          tilt: 0.0,
+          zoom: 18.0,
+        ),
+      )
+      );
+    });
+//    EasyStrollDB db = new EasyStrollDB();
+//    var pos = await db.getPos('8944501810180175785f');
+//    saveLoc(pos);
+//    setState(() {
+//      _message = pos.toString();
+//    });
+  }
 }
+

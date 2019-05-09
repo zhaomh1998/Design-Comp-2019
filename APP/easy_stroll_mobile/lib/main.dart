@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'ui/map.dart';
 import 'ui/signin.dart';
+import 'ui/walker_manager.dart';
 import 'util/auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'util/db.dart';
@@ -62,6 +63,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: const Text('LogIn'),
                     onPressed: () {_login(context);},
                   ), // Log In Page
+                  RaisedButton(
+                    child: const Text('Walker Manager'),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new WalkerManagerPage()));
+                    },
+                  ), // Walker Manager Page
                   RaisedButton(
                     child: const Text('Clear auto login'),
                     onPressed: () {_clearAutoLogin();},

@@ -3,13 +3,13 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 abstract class DB {
 
-//  Future<bool> userExists(String uid);
-//
-//  Future<String> getUserName(String uid);
-//
-//  Future<void> createUser(String uid);
+//  Future<bool> bindWalker(String uid, String wid);
 
-  Future<LatLng> getPos(String ccid);
+//  Future<double> getWalkerLastUpdated(String uid);
+
+//  Future<List<Map<double, LatLng>>> getWalkerLoc(String uid);
+
+//  Future<LatLng> getPos(String uid);
 
 }
 
