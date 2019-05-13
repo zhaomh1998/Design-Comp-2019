@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:easy_stroll_mobile/util/var.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../util/auth.dart';
@@ -69,8 +70,8 @@ class _MapPageStates extends State<MapPage> {
 
   Future<void> _updateMapLoc() async {
 //    var pos = await loadLoc();
-    EasyStrollDB db = new EasyStrollDB();
-    var pos = await db.getPos('8944501810180175785f');
+    DB db = getDB();
+    var pos = await db.getLastPos('8944501810180175785f');
     setState(() {
       _loc = pos;
       mapController.animateCamera(CameraUpdate.newCameraPosition(
@@ -83,7 +84,7 @@ class _MapPageStates extends State<MapPage> {
       )
       );
     });
-//    EasyStrollDB db = new EasyStrollDB();
+//    DB db = new EasyStrollDB();
 //    var pos = await db.getPos('8944501810180175785f');
 //    saveLoc(pos);
 //    setState(() {

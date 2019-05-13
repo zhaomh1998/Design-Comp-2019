@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import '../util/auth.dart';
+import '../util/storage.dart';
+import '../util/var.dart';
 
 
 
 class LoginSignUpPage extends StatefulWidget {
-  LoginSignUpPage({this.auth, this.onSignedIn});
+  LoginSignUpPage(this.auth);
 
   final BaseAuth auth;
-  final VoidCallback onSignedIn;
 
   @override
   State<StatefulWidget> createState() => new _LoginSignUpPageState();
@@ -50,11 +51,13 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
         if (_formMode == FormMode.LOGIN) {
           userId = await widget.auth.signIn(_email, _password);
           print('Signed in: $userId');
+          setUserId(userId);
         } else {
           userId = await widget.auth.signUp(_email, _password);
 //          widget.auth.sendEmailVerification();
-////          _showVerifyEmailSentDialog();
+//          _showVerifyEmailSentDialog();
           print('Signed up user: $userId');
+          setUserId(userId);
         }
         if(_doSaveCredential)
           saveCredential(_email, _password, userId);
@@ -63,7 +66,6 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
         });
 
         if (userId.length > 0 && userId != null && _formMode == FormMode.LOGIN) {
-          widget.onSignedIn();
           Navigator.pop(context);
         }
 

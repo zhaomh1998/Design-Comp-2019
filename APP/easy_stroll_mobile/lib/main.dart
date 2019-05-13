@@ -5,6 +5,8 @@ import 'ui/walker_manager.dart';
 import 'util/auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'util/db.dart';
+import 'util/storage.dart';
+import 'util/var.dart';
 
 void main() {
   runApp(new MyApp());
@@ -89,6 +91,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {_testGetSavedPos();},
                   ), // Test get Pos
                   RaisedButton(
+                    child: const Text('Get uid from program'),
+                    onPressed: () {setState(() {
+                      _message = getUserId();
+                    });},
+                  ), // Display uid
+                  RaisedButton(
                     child: const Text('Clear msg'),
                     onPressed: () {setState(() {
                       _message = "";
@@ -109,6 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
     bool autoLogin = prefs.getBool('doAutoLogin') ?? false;
     if(autoLogin) {
       String uid = await fbAuth.autoSignIn();
+      setUserId(uid);
       setState(() {
         _message = "Signed In with id: $uid";
       });
@@ -117,11 +126,10 @@ class _MyHomePageState extends State<MyHomePage> {
       Navigator.push(
           context,
           new MaterialPageRoute(
-              builder: (context) => new LoginSignUpPage(auth: fbAuth, onSignedIn: () {debugPrint("SignedInWithID");},)
+              builder: (context) => new LoginSignUpPage(fbAuth)
           )
       );
     }
-//  await prefs.setInt('counter', counter);
   }
 
   _clearAutoLogin() async {
@@ -129,15 +137,15 @@ class _MyHomePageState extends State<MyHomePage> {
     prefs.setBool('doAutoLogin', false);
   }
   _testGetDB() async {
-    EasyStrollDB db = new EasyStrollDB();
-    String db_data = await db.getAll();
+    DB db = getDB();
+    Map db_data = await db.getWalkersData();
     setState(() {
-      _message = db_data;
+      _message = "done";
     });
   }
   _testGetPos() async {
-    EasyStrollDB db = new EasyStrollDB();
-    var pos = await db.getPos('8944501810180175785f');
+    DB db = getDB();
+    var pos = await db.getLastPos('8944501810180175785f');
     saveLoc(pos);
     setState(() {
       _message = pos.toString();
