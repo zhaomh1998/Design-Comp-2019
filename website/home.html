@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Easy Stroll</title>
+		<meta charset="utf-8" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+    
+<body>
+ <div id="container">   
+     <div class="topnav">
+        <a href="#header">Home</a>
+        <a href="#banner1">Overview</a>
+        <a href="#banner2">Technology</a>
+        <a href="#banner3">Timeline</a>
+        <a href="#banner4">Reviews</a>
+     </div> 
+ </div> 
+    
+<section id="header">
+				<header>
+                    <div id="grey">
+					<h1>Easy Stroll</h1>
+					<p>2019 ECE Design Competition</p>
+                    </div>
+				</header> 
+                
+                <br>
+                <br>
+    
+                <div class="buttons">
+<button type="button" class="MyButton1" onclick="window.open('https://github.com/tkafel/Design-Comp-2019')">Github</button>
+<button type="button" class="MyButton2" onclick="window.open('https://docs.google.com/presentation/d/1qWp5YXy4hH4oO5mlKkbT9TMSrNKagtiIdOaUZKzyhr0/edit?usp=sharing')">Demo</button>
+</div>
+</section> 
+
+<div id="gap" > </div>   
+   
+<section id="banner1">
+				<header>
+					<h2>Overview</h2>
+				</header>
+                <div id="img">
+<!--                <img src="walker.png" alt="walker" style="width:316px; height:376.5px;" >-->
+                </div>    
+</section>
+
+<section id="banner2">
+				<header>
+					<h2>Technology</h2>
+				</header>
+</section>
+    
+<section id="banner3">
+				<header>
+					<h2>Timeline</h2>
+				</header>
+</section>
+    
+<section id="banner4">
+				<header>
+					<h2>Customers say...</h2>
+				</header>
+        <div class="video" >
+        </div>
+    
+</section>
+    
+<section id="footer">
+<div >
+        <h3>&copy; Team Pi</h3>
+        <br>
+        <h4>Created by Tina Kafel,Scott Zhao, Shirley Guo</h4>
+        <h4>Sarah Kinney,Talia Elma and Zhaowei Yu</h4> 
+</div>
+</section>     
+       
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("container");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+<script>
+    $("#grey").fadeIn(1500);
+    $("#container").fadeIn(1500);
+    $(".buttons").fadeIn(1500);
+</script>
+</body>    
+</html>
