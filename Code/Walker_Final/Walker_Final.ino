@@ -30,6 +30,7 @@ char imei[16] = {0}; // MUST use a 16 character buffer for IMEI!
 
 // Debug Setting
 static uint8_t DEBUG_MAC_WALKER[] = {0x36, 0x00, 0x00, 0x66, 0x66, 0x33};
+static uint8_t NECKLACE[] = {0x36, 0x00, 0x00, 0x66, 0x66, 0x34};
 static uint8_t DEBUGGER[] {0x36, 0x00, 0x00, 0x66, 0x66, 0x40};
 
 
@@ -61,7 +62,12 @@ void normalModeSetup() {
 
   WifiEspNow.onReceive(printReceivedMessage, nullptr);
   if (!WifiEspNow.addPeer(DEBUGGER)) {
-    Serial.println("Add peer failed!");
+    Serial.println("Add peer debugger failed!");
+    ESP.restart();
+  }
+
+  if (!WifiEspNow.addPeer(NECKLACE)) {
+    Serial.println("Add peer necklace failed!");
     ESP.restart();
   }
 
