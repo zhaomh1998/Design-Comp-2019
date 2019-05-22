@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Easy Stroll</title>
+		<meta charset="utf-8" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Refresh" content="7; url=//www.baidu.com" />
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+    
+<body>
+ <div id="container">   
+     <div class="topnav">
+        <a href="#header">Home</a>
+        <a href="#banner1">Overview</a>
+        <a href="#banner2">Technology</a>
+        <a href="#banner3">Timeline</a>
+        <a href="#banner4">Reviews</a>
+         <a href="//www.baidu.com/">Login</a>
+     </div> 
+ </div> 
+    
+<section id="header">
+				<header>
+                    <div id="grey">
+					<h1>Easy Stroll</h1>
+					<p>2019 ECE Design Competition</p>
+                    </div>
+				</header>     
+</section> 
+
+<div id="gap" > </div>   
+
+<div class="buttons">
+<button type="button" class="MyButton1" onclick="window.open('https://github.com/tkafel/Design-Comp-2019')">Github</button>
+<button type="button" class="MyButton2" onclick="window.open('https://docs.google.com/presentation/d/1qWp5YXy4hH4oO5mlKkbT9TMSrNKagtiIdOaUZKzyhr0/edit?usp=sharing')">Demo</button>
+</div>
+   
+<section id="banner1">
+				<header id = "texto">
+					<h2>Overview</h2>
+				</header>
+  
+        <section class = "overtext">
+          <center>
+            <h3>WE ARE YOUR FAMILY</h3>
+            <h5 id = "op1">We Want You Walk Freely</h5>
+            <div id = 'optext'><p> Many Parkinson's disease patient cannot do multi-tasking, which means they cannot walk and see front at same time. As your family, Easy Stroll want to help you.</p></div>
+          </center>
+        </section>
+     
+        <center id = 'ov1'>
+          
+          <div class = 'ov'>
+            <h6>No One Help You When You Are In Danger?</h6>
+            <p class = 'ovf' id = 'ovf1'>We help you! Our product can sends an SOS meesage with your location to your family when we detect your body collision or you press the SOS button. </p>
+          </div>
+          
+          <div class = 'ov'>
+            <h6>Have Trouble With Walking?</h6>
+            <p class = 'ovf'>Our product detects all obstacles in front you. Only thing you need to do is following the laser line on the ground. Our product provides the safest path for you. Your safety is our only concern.</p>
+          </div>
+          
+          <div class = 'ov'>
+            <h6>Forget To Report Your Symptoms?</h6>
+            <p class = 'ovf'>Our product monitor all Parkinsin's disease symptoms you have: freezing, tremor, etc. You can easily find your symptoms data on our app. </p>
+          </div>
+       </center>
+                <div class="video">
+                </div>    
+</section>
+
+<section id="banner2">
+  <section>
+    <div class = 'contentec'>
+      <center id = 'pos1'>using lidar, our product can always detect obstacles in front of you.</center>
+
+      <center>
+        <img src = 'gps.jpg' class = 'imgtec1' id = 'imgt2'>
+      </center>
+      
+      <center id = 'pos3'>our laser module always show the right and safe path for you</center>
+    
+    </div>
+    <div class = 'contentec'>
+      <center>
+        <img src = 'lidar.jpg' class = 'imgtec' id = 'imgt1'>
+      </center>
+      <center id = 'pos2'>with GPS, your family can find you whereever you are </center>
+      <center>
+        <img src = 'laser.jpg' class = 'imgtec' id = 'imgt3'>
+      </center>
+     
+      
+    </div>
+    
+  </section>
+  <section class = 'textcon'>
+    <header>
+					<h2>Technology</h2>
+		</header>
+  </section>
+				
+</section>
+    
+<section id="banner3">
+				<header>
+					<h2>Timeline</h2>
+				</header>
+</section>
+    
+<section id="banner4">
+				<header>
+					<h2>Customers say...</h2>
+				</header>
+        <div class="video" >
+        </div>
+    
+</section>
+    
+<section id="footer">
+<div >
+        <h3>&copy; Team Pi</h3>
+        <br>
+        <h4>Created by Tina Kafel,Scott Zhao, Shirley Guo</h4>
+        <h4>Sarah Kinney,Talia Elma,Zhaowei Yu, Ivan Ferrier</h4> 
+        <h4>Zhenhao Pan, Liezl Maree, Kasidech Tantipanichaphan</h4>
+</div>
+</section>     
+       
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("container");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+<script>
+    $("#grey").fadeIn(1500);
+    $("#container").fadeIn(1500);
+</script>
+    
+<script>
+function myFunction() {
+  location.replace("https://www.google.com")
+}
+</script>
+</body>    
+</html>
