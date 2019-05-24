@@ -1,4 +1,7 @@
 import 'db.dart';
+import 'api_key.dart';  // Create a dart file 'api_key.dart' in this folder
+                        // Then write String GMAP_API_KEY = 'XX';
+import 'package:google_maps_webservice/geocoding.dart';
 // User auth stuff
 String _userId;
 
@@ -25,3 +28,6 @@ DB getDB() {
 // Walker stuff
 String _currentWalkerIndex;
 List<Map> _allWaker = [];
+
+// Gmap services stuff
+GoogleMapsGeocoding getGeoCoding() => new GoogleMapsGeocoding(apiKey: GMAP_API_KEY);

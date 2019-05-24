@@ -2,6 +2,8 @@ import 'dart:collection';
 
 import 'package:firebase_database/firebase_database.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:google_maps_webservice/geocoding.dart';
+import 'var.dart';
 
 abstract class DB {
   DB(String userId);
@@ -12,11 +14,13 @@ abstract class DB {
   Future<List<Map>> getRecentPos(String ccid, int retrieveEntries);
   Future<List<String>> getAssociateWalkers();
   Future<Map> getWalkersData();
-}
+  Future<String> getWalkerName(String ccid);
+  }
 
 class EasyStrollDB implements DB {
   String _uid;
   final databaseReference;
+  final _geocoding = getGeoCoding();
 
   EasyStrollDB(String userId)
       : _uid = userId,
@@ -46,10 +50,15 @@ class EasyStrollDB implements DB {
         .limitToLast(retrieveEntries)
         .once();
     await data.then((snapshot) {
-      snapshot.value.forEach((k, v) {
-        var dataMap = {"time": k, "lat": v["lat"], "lon": v["lon"]};
-        returnPos.add(dataMap);
-      });
+      if(snapshot.value == null) {
+        print("Walker $ccid has no gps data!");
+      }
+      else {
+        snapshot.value.forEach((k, v) {
+          var dataMap = {"time": k, "lat": v["lat"].toDouble(), "lon": v["lon"].toDouble()};
+          returnPos.add(dataMap);
+        });
+      }
     });
     return returnPos;
   }
@@ -78,7 +87,21 @@ class EasyStrollDB implements DB {
         walkerSnapshot = dataList.first;
       });
       walkersData[walkerId] = walkerSnapshot;
+      String walkerName = await getWalkerName(walkerId);
+      var walkerPos = await _geocoding.searchByLocation(Location(walkerSnapshot['lat'], walkerSnapshot['lon']));
+      if(walkerPos.status == 'OK')
+        walkersData[walkerId]['addr'] = walkerPos.results[2].formattedAddress;
+      else
+        walkersData[walkerId]['addr'] = walkerPos.errorMessage ?? "Unknown location";
+      walkersData[walkerId]['name'] = walkerName;
     }
     return walkersData;
+  }
+
+  Future<String> getWalkerName(String ccid) async {
+    DataSnapshot data = await databaseReference.child('walker/$ccid/name').once();
+    if(data.value!=null) {
+      return data.value;
+    }
   }
 }

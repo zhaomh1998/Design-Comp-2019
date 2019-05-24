@@ -26,6 +26,8 @@ class _WalkerManagerPageState extends State<WalkerManagerPage> {
       else {
       setState(() {
         data.forEach((k, v) {walkerCards.add(_buildCard(k, v));});
+        print("Added card");
+        _isLoading = false;
       });
       }
     });
@@ -75,33 +77,42 @@ class _WalkerManagerPageState extends State<WalkerManagerPage> {
 
 Future<Map> _loadData() async {
   DB db = getDB();
-  return db.getWalkersData();
+  var walkerData = await db.getWalkersData();
+  return walkerData;
 }
 
 Widget _buildCard(String ccid, Map dataMap) {
+  String walkerName = dataMap['name'];
+  var latestData = dataMap;
+  int updatedTime = int.parse(latestData['time']);
+//  double latestLat = latestData['lat'];
+//  double latestLon = latestData['lon'];
   return Card(
-    child: Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        const ListTile(
-          leading: Icon(Icons.shopping_cart),
-          title: Text('Walker 1 Name Here'),
-          subtitle: Text('Active moments ago'),
-        ),
-        ButtonTheme.bar( // make buttons use the appropriate styles for cards
-          child: ButtonBar(
-            children: <Widget>[
-              FlatButton(
-                child: const Text('View activity'),
-                onPressed: () {
-                  /* ... */
-                },
-              ),
-              IconButton(icon: Icon(Icons.settings), onPressed: () {},),
-            ],
+    child: Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          ListTile(
+            leading: Icon(Icons.shopping_cart),
+            title: Text(walkerName),
+            subtitle: Text(dataMap['addr'] + '\n' + "Last seen ${readTimestamp(updatedTime)}"),
           ),
-        ),
-      ],
+          ButtonTheme.bar( // make buttons use the appropriate styles for cards
+            child: ButtonBar(
+              children: <Widget>[
+                FlatButton(
+                  child: const Text('View activity'),
+                  onPressed: () {
+                    /* ... */
+                  },
+                ),
+                IconButton(icon: Icon(Icons.settings), onPressed: () {},),
+              ],
+            ),
+          ),
+        ],
+      ),
     ),
   );
 }
@@ -120,15 +131,15 @@ String readTimestamp(int timestamp) {
     time = format.format(date);
   } else if (diff.inDays > 0 && diff.inDays < 7) {
     if (diff.inDays == 1) {
-      time = diff.inDays.toString() + ' DAY AGO';
+      time = diff.inDays.toString() + ' day ago';
     } else {
-      time = diff.inDays.toString() + ' DAYS AGO';
+      time = diff.inDays.toString() + ' days ago';
     }
   } else {
     if (diff.inDays == 7) {
-      time = (diff.inDays / 7).floor().toString() + ' WEEK AGO';
+      time = (diff.inDays / 7).floor().toString() + ' week ago';
     } else {
-      time = (diff.inDays / 7).floor().toString() + ' WEEKS AGO';
+      time = (diff.inDays / 7).floor().toString() + ' weeks ago';
     }
   }
 
