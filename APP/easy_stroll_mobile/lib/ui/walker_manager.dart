@@ -129,19 +129,38 @@ Widget _buildCard(String ccid, Map dataMap, BuildContext context) {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(walkerName, style: TextStyle(fontSize: 20.0),),
-              Text(dataMap['addr'], style: TextStyle(fontSize: 15.0, fontStyle: FontStyle.italic)),
-              Text("Last seen ${readTimestamp(updatedTime)}", style: TextStyle(fontSize: 15.0, fontStyle: FontStyle.italic))
-            ],
+          Expanded(
+            flex: 5,
+            child: InkWell(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(walkerName, style: TextStyle(fontSize: 25.0),),
+                  Text(dataMap['addr'], style: TextStyle(fontSize: 15.0, fontStyle: FontStyle.italic)),
+                  Text("Last seen ${readTimestamp(updatedTime)}", style: TextStyle(fontSize: 15.0, fontStyle: FontStyle.italic))
+                ],
+              ),
+              onLongPress: ()=>print("Setting"),
+            ),
           ),
-          IconButton(icon: Icon(Icons.play_arrow, size: 35.0,),
-            onPressed: () {
-              setPatient(walkerName, latestData);
-              Navigator.of(context).pushNamed('/map');
-            },)
+          Expanded(
+            flex: 2,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                IconButton(icon: Icon(Icons.description, size: 35.0,),
+                  onPressed: () {
+                    setPatient(walkerName, latestData);
+                    Navigator.of(context).pushNamed('/analysis');
+                  },),
+                IconButton(icon: Icon(Icons.play_arrow, size: 35.0,),
+                  onPressed: () {
+                    setPatient(walkerName, latestData);
+                    Navigator.of(context).pushNamed('/map');
+                  },)
+              ],
+            ),
+          )
         ],
       ),
     ),

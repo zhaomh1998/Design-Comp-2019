@@ -16,7 +16,6 @@ class MapPage extends StatefulWidget {
 
 class _MapPageStates extends State<MapPage> {
   GoogleMapController mapController;
-  LatLng _loc = LatLng(0,0);
   Map<MarkerId, Marker> markers = <MarkerId, Marker>{};
 
   @override
@@ -28,7 +27,7 @@ class _MapPageStates extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Easy Stroll Map Page Title")),
+      appBar: AppBar(title: Text("$patientName's Activity")),
       body: _buildBody(),
     );
   }
@@ -44,7 +43,16 @@ class _MapPageStates extends State<MapPage> {
 
   Widget _buildControl() {
     return ListView(
-      children: <Widget>[Text(patientName)],
+      children: <Widget>[
+        InkWell(
+          child: ListTile(
+            leading: Icon(Icons.access_time),
+            title: Text(readTimestamp(int.parse(patientData['time']))),
+            subtitle: Text(patientData['addr']),
+          ),
+          onTap: ()=>print("Tap!"),
+        )
+      ],
     );
   }
   Widget _buildGoogleMap() {

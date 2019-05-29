@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5f4684f-b517-4f84-a6d9-3ead78fd7e5d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/ui/analysis.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ui/map.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/map.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ui/walker_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/walker_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/util/current_patient.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/util/current_patient.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/util/db.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/util/db.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Backend/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Backend/main.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -39,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/lib/util/var.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="147">
-              <caret line="7" column="39" lean-forward="true" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+              <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -50,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/util/current_patient.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="252">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="e#31#93#0" expanded="true" />
               </folding>
@@ -62,7 +67,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter-0.5.13/lib/src/location.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1324">
+            <state relative-caret-position="21">
               <caret line="46" selection-start-line="46" selection-end-line="46" />
             </state>
           </provider>
@@ -71,8 +76,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/util/db.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-419">
-              <caret line="43" column="11" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
+            <state relative-caret-position="157">
+              <caret line="86" column="55" lean-forward="true" selection-start-line="86" selection-start-column="55" selection-end-line="86" selection-end-column="55" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -80,11 +85,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/ui/walker_manager.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="144" column="10" lean-forward="true" selection-start-line="144" selection-start-column="10" selection-end-line="144" selection-end-column="10" />
+            <state relative-caret-position="213">
+              <caret line="138" column="69" selection-start-line="138" selection-start-column="69" selection-end-line="138" selection-end-column="69" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -95,8 +109,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/ui/map.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="66" column="31" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="31" />
+            <state relative-caret-position="62">
+              <caret line="26" column="11" lean-forward="true" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/ui/analysis.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="833">
+              <caret line="98" column="12" lean-forward="true" selection-start-line="98" selection-start-column="12" selection-end-line="98" selection-end-column="12" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -107,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+            <state relative-caret-position="196">
+              <caret line="27" column="67" selection-start-line="27" selection-start-column="67" selection-end-line="27" selection-end-column="67" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -128,7 +154,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>primary</find>
       <find>Seconda</find>
       <find>doSave</find>
       <find>showsw</find>
@@ -158,6 +183,7 @@
       <find>set</find>
       <find>loginSign</find>
       <find>_buildCard</find>
+      <find>/map</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -184,13 +210,14 @@
         <option value="$PROJECT_DIR$/lib/util/auth.dart" />
         <option value="$PROJECT_DIR$/lib/util/storage.dart" />
         <option value="$PROJECT_DIR$/lib/ui/signin.dart" />
-        <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/util/api_key.dart" />
-        <option value="$PROJECT_DIR$/lib/util/db.dart" />
         <option value="$PROJECT_DIR$/lib/util/var.dart" />
         <option value="$PROJECT_DIR$/lib/util/current_patient.dart" />
+        <option value="$PROJECT_DIR$/lib/util/db.dart" />
+        <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/ui/map.dart" />
         <option value="$PROJECT_DIR$/lib/main.dart" />
+        <option value="$PROJECT_DIR$/lib/ui/analysis.dart" />
         <option value="$PROJECT_DIR$/lib/ui/walker_manager.dart" />
       </list>
     </option>
@@ -201,11 +228,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-15" />
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="1057" />
+    <option name="width" value="1440" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -213,6 +239,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -241,8 +269,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -311,12 +337,13 @@
       <workItem from="1557813303792" duration="813000" />
       <workItem from="1558131718330" duration="11055000" />
       <workItem from="1558676673958" duration="11414000" />
-      <workItem from="1559110895668" duration="8971000" />
+      <workItem from="1559110895668" duration="9408000" />
+      <workItem from="1559157983756" duration="4020000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98760000" />
+    <option name="totallyTimeSpent" value="103217000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -328,10 +355,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="23" width="1440" height="877" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22636104" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2299427" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -339,8 +366,8 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27178153" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32769832" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27568272" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.3706112" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -349,7 +376,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.27438232" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.20758693" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.20676203" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32899868" />
       <window_info anchor="bottom" id="Flutter Performance" order="14" sideWeight="0.50053304" side_tool="true" weight="0.41412014" />
@@ -359,7 +386,7 @@
       <window_info anchor="right" id="Maven" order="3" weight="0.32995737" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Flutter Inspector" order="5" weight="0.29530916" />
-      <window_info anchor="right" id="Flutter Outline" order="6" weight="0.3283582" />
+      <window_info active="true" anchor="right" id="Flutter Outline" order="6" visible="true" weight="0.32808024" />
       <window_info anchor="right" id="Database" order="7" weight="0.32995737" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
@@ -597,13 +624,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter-0.5.13/lib/google_maps_flutter.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -648,37 +668,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter-0.5.13/lib/src/location.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1324">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/util/db.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-419">
-          <caret line="43" column="11" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
+        <state relative-caret-position="157">
+          <caret line="86" column="55" lean-forward="true" selection-start-line="86" selection-start-column="55" selection-end-line="86" selection-end-column="55" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/util/current_patient.dart">
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#31#93#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="270">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter-0.5.13/lib/src/location.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/util/var.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
-          <caret line="7" column="39" lean-forward="true" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
@@ -687,18 +704,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+        <state relative-caret-position="196">
+          <caret line="27" column="67" selection-start-line="27" selection-start-column="67" selection-end-line="27" selection-end-column="67" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/util/current_patient.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#31#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/ui/analysis.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="98" column="12" lean-forward="true" selection-start-line="98" selection-start-column="12" selection-end-line="98" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/ui/map.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="66" column="31" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="31" />
+        <state relative-caret-position="62">
+          <caret line="26" column="11" lean-forward="true" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
@@ -707,8 +744,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/ui/walker_manager.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="144" column="10" lean-forward="true" selection-start-line="144" selection-start-column="10" selection-end-line="144" selection-end-column="10" />
+        <state relative-caret-position="213">
+          <caret line="138" column="69" selection-start-line="138" selection-start-column="69" selection-end-line="138" selection-end-column="69" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>

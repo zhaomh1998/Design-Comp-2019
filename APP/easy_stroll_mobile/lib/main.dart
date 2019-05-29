@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'ui/map.dart';
 import 'ui/signin.dart';
 import 'ui/walker_manager.dart';
+import 'ui/analysis.dart';
 import 'util/auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'util/db.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder> {
         '/map': (BuildContext context) => new MapPage(),
         '/walker' : (BuildContext context) => new WalkerManagerPage(),
+        '/analysis' : (BuildContext context) => new AnalysisPage(),
       },
     );
   }
