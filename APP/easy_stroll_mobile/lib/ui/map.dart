@@ -58,27 +58,30 @@ class _MapPageStates extends State<MapPage> {
     );
   }
   void _onMapCreated(GoogleMapController controller) {
-    setState(() {
-      mapController = controller;
-      mapController.animateCamera(CameraUpdate.newCameraPosition(
-        CameraPosition(
-          bearing: 0.0,
-          target: getLatestLoc(),
-          tilt: 0.0,
-          zoom: 18.0,
-        ),
-      ));
-      addMarker("Latest", getLatestLoc());
-    });
+    _updateRecentPin(controller);
   }
 
-  void addMarker(String anId, LatLng markerPosition) {
+  void _updateRecentPin(GoogleMapController controller) {
+    addMarker("Latest", readTimestamp(int.parse(patientData['time'])), getLatestLoc());
+    mapController = controller;
+    mapController.animateCamera(CameraUpdate.newCameraPosition(
+      CameraPosition(
+        bearing: 0.0,
+        target: getLatestLoc(),
+        tilt: 0.0,
+        zoom: 18.0,
+      ),
+    ));
+  }
+
+
+  void addMarker(String anId, String anSubtitle, LatLng markerPosition) {
     final MarkerId markerId = MarkerId(anId);
     // creating a new MARKER
     final Marker marker = Marker(
       markerId: markerId,
       position: markerPosition,
-      infoWindow: InfoWindow(title: markerId.toString(), snippet: '*'),
+      infoWindow: InfoWindow(title: markerId.value, snippet: anSubtitle),
 //      onTap: () {
 ////        _onMarkerTapped(markerId);
 ////      },

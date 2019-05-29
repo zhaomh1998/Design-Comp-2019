@@ -21,6 +21,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: new MyHomePage(title: 'Easy Stroll Landing Page Title'),
+      routes: <String, WidgetBuilder> {
+        '/map': (BuildContext context) => new MapPage(),
+        '/walker' : (BuildContext context) => new WalkerManagerPage(),
+      },
     );
   }
 }

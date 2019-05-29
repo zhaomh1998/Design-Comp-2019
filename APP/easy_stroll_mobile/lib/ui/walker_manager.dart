@@ -1,6 +1,5 @@
 import 'package:easy_stroll_mobile/util/db.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import '../util/var.dart';
 import '../util/current_patient.dart';
 
@@ -25,7 +24,7 @@ class _WalkerManagerPageState extends State<WalkerManagerPage> {
       }
       else {
       setState(() {
-        data.forEach((k, v) {walkerCards.add(_buildCard(k, v));});
+        data.forEach((k, v) {walkerCards.add(_buildCard(k, v, context));});
         print("Added card");
         _isLoading = false;
       });
@@ -36,7 +35,7 @@ class _WalkerManagerPageState extends State<WalkerManagerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("WalkerManagerPage Title")),
+      appBar: AppBar(title: Text("Current Patient")),
       body: _buildBody(context),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -81,68 +80,70 @@ Future<Map> _loadData() async {
   return walkerData;
 }
 
-Widget _buildCard(String ccid, Map dataMap) {
+//Widget _buildCard(String ccid, Map dataMap) {
+//  String walkerName = dataMap['name'];
+//  var latestData = dataMap;
+//  int updatedTime = int.parse(latestData['time']);
+////  double latestLat = latestData['lat'];
+////  double latestLon = latestData['lon'];
+//  return Card(
+//    child: Padding(
+//      padding: const EdgeInsets.all(12.0),
+//      child: Column(
+//        mainAxisSize: MainAxisSize.min,
+//        children: <Widget>[
+//          ListTile(
+//            leading: Icon(Icons.shopping_cart),
+//            title: Text(walkerName),
+//            subtitle: Text(dataMap['addr'] + '\n' + "Last seen ${readTimestamp(updatedTime)}"),
+//          ),
+//          ButtonTheme.bar( // make buttons use the appropriate styles for cards
+//            child: ButtonBar(
+//              children: <Widget>[
+//                FlatButton(
+//                  child: const Text('View activity'),
+//                  onPressed: () {
+//                    print("Setting $walkerName as current patient");
+//                    setPatient(walkerName, latestData);
+//                  },
+//                ),
+//                IconButton(icon: Icon(Icons.settings), onPressed: () {},),
+//              ],
+//            ),
+//          ),
+//        ],
+//      ),
+//    ),
+//  );
+//}
+Widget _buildCard(String ccid, Map dataMap, BuildContext context) {
   String walkerName = dataMap['name'];
   var latestData = dataMap;
   int updatedTime = int.parse(latestData['time']);
 //  double latestLat = latestData['lat'];
 //  double latestLon = latestData['lon'];
   return Card(
+    color: Color(0xFFBDFFB6),
     child: Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
+      padding: const EdgeInsets.all(20.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          ListTile(
-            leading: Icon(Icons.shopping_cart),
-            title: Text(walkerName),
-            subtitle: Text(dataMap['addr'] + '\n' + "Last seen ${readTimestamp(updatedTime)}"),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(walkerName, style: TextStyle(fontSize: 20.0),),
+              Text(dataMap['addr'], style: TextStyle(fontSize: 15.0, fontStyle: FontStyle.italic)),
+              Text("Last seen ${readTimestamp(updatedTime)}", style: TextStyle(fontSize: 15.0, fontStyle: FontStyle.italic))
+            ],
           ),
-          ButtonTheme.bar( // make buttons use the appropriate styles for cards
-            child: ButtonBar(
-              children: <Widget>[
-                FlatButton(
-                  child: const Text('View activity'),
-                  onPressed: () {
-                    print("Setting $walkerName as current patient");
-                    setPatient(walkerName, latestData);
-                  },
-                ),
-                IconButton(icon: Icon(Icons.settings), onPressed: () {},),
-              ],
-            ),
-          ),
+          IconButton(icon: Icon(Icons.play_arrow, size: 35.0,),
+            onPressed: () {
+              setPatient(walkerName, latestData);
+              Navigator.of(context).pushNamed('/map');
+            },)
         ],
       ),
     ),
   );
-}
-
-
-String readTimestamp(int timestamp) {
-  var now = new DateTime.now();
-  var format = new DateFormat('HH:mm a');
-  var date = new DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
-  var diff = now.difference(date);
-  var time = '';
-
-  if (diff.inSeconds <= 0 || diff.inSeconds > 0 && diff.inMinutes == 0 ||
-      diff.inMinutes > 0 && diff.inHours == 0 ||
-      diff.inHours > 0 && diff.inDays == 0) {
-    time = format.format(date);
-  } else if (diff.inDays > 0 && diff.inDays < 7) {
-    if (diff.inDays == 1) {
-      time = diff.inDays.toString() + ' day ago';
-    } else {
-      time = diff.inDays.toString() + ' days ago';
-    }
-  } else {
-    if (diff.inDays == 7) {
-      time = (diff.inDays / 7).floor().toString() + ' week ago';
-    } else {
-      time = (diff.inDays / 7).floor().toString() + ' weeks ago';
-    }
-  }
-
-  return time;
 }
