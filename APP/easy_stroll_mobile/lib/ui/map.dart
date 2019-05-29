@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../util/auth.dart';
 import '../util/db.dart';
+import '../util/current_patient.dart';
 
 class MapPage extends StatefulWidget {
   MapPage({Key key}) : super(key: key);
@@ -16,9 +17,11 @@ class MapPage extends StatefulWidget {
 class _MapPageStates extends State<MapPage> {
   GoogleMapController mapController;
   LatLng _loc = LatLng(0,0);
+  Map<MarkerId, Marker> markers = <MarkerId, Marker>{};
+
   @override
   void initState() {
-    _updateMapLoc();
+//    _updateMapLoc();
     super.initState();
   }
 
@@ -41,7 +44,7 @@ class _MapPageStates extends State<MapPage> {
 
   Widget _buildControl() {
     return ListView(
-      children: <Widget>[Text(_loc.toString())],
+      children: <Widget>[Text(patientName)],
     );
   }
   Widget _buildGoogleMap() {
@@ -51,39 +54,42 @@ class _MapPageStates extends State<MapPage> {
         target: LatLng(32.88, -117.23),
         zoom: 12.0,
       ),
+      markers: Set<Marker>.of(markers.values),
     );
   }
   void _onMapCreated(GoogleMapController controller) {
     setState(() {
       mapController = controller;
-//      mapController.animateCamera(CameraUpdate.newCameraPosition(
-//        CameraPosition(
-//          bearing: 0.0,
-//          target: _loc,
-//          tilt: 0.0,
-//          zoom: 18.0,
-//        ),
-//      )
-//      );
-    });
-  }
-
-  Future<void> _updateMapLoc() async {
-//    var pos = await loadLoc();
-    DB db = getDB();
-    var pos = await db.getLastPos('8944501810180175785f');
-    setState(() {
-      _loc = pos;
       mapController.animateCamera(CameraUpdate.newCameraPosition(
         CameraPosition(
           bearing: 0.0,
-          target: pos,
+          target: getLatestLoc(),
           tilt: 0.0,
           zoom: 18.0,
         ),
-      )
-      );
+      ));
+      addMarker("Latest", getLatestLoc());
     });
+  }
+
+  void addMarker(String anId, LatLng markerPosition) {
+    final MarkerId markerId = MarkerId(anId);
+    // creating a new MARKER
+    final Marker marker = Marker(
+      markerId: markerId,
+      position: markerPosition,
+      infoWindow: InfoWindow(title: markerId.toString(), snippet: '*'),
+//      onTap: () {
+////        _onMarkerTapped(markerId);
+////      },
+    );
+
+    setState(() {
+      // adding a new marker to map
+      markers[markerId] = marker;
+    });
+  }
+
 //    DB db = new EasyStrollDB();
 //    var pos = await db.getPos('8944501810180175785f');
 //    saveLoc(pos);
@@ -91,5 +97,4 @@ class _MapPageStates extends State<MapPage> {
 //      _message = pos.toString();
 //    });
   }
-}
 

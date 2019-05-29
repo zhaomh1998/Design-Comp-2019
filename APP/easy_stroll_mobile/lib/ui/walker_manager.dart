@@ -2,7 +2,7 @@ import 'package:easy_stroll_mobile/util/db.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../util/var.dart';
-
+import '../util/current_patient.dart';
 
 class WalkerManagerPage extends StatefulWidget {
   @override
@@ -104,7 +104,8 @@ Widget _buildCard(String ccid, Map dataMap) {
                 FlatButton(
                   child: const Text('View activity'),
                   onPressed: () {
-                    /* ... */
+                    print("Setting $walkerName as current patient");
+                    setPatient(walkerName, latestData);
                   },
                 ),
                 IconButton(icon: Icon(Icons.settings), onPressed: () {},),
