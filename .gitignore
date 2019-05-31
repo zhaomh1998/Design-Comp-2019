@@ -4,3 +4,4 @@ Backend/credentials/*.json
 Backend/example
 google-services.json
 api_key.dart
+GoogleService-Info.plist
