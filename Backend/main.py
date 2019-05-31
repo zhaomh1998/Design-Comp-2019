@@ -1,7 +1,7 @@
 # File: superheroes.py
 
 import firebase_admin
-from firebase_admin import db
+from firebase_admin import db, messaging
 import flask
 import time
 
@@ -64,6 +64,29 @@ def gps_update_test():
     db_root.child('walker/'+str(ccid)+'/gps/'+str(int(time.time()))).update({'lat': float(lat), 'lon': float(lon)})
     return flask.jsonify(db_root.get())
 
+
+@app.route('/sos', methods=['GET'])
+def send_sos_msg():
+    ccid = flask.request.args.get('ccid')
+    if ccid not in walker_list:
+        refresh_lists()
+        if ccid not in walker_list:
+            return 'Invalid or not registered walker ID!'
+
+    walker_name = db_root.child('walker/'+str(ccid)+'/name/').get()
+    topic = ccid
+    message = messaging.Message(
+        notification=messaging.Notification(
+            title=str(walker_name) + ' sent a help message',
+            body='Click here to see where John is at',
+        ),
+        data={
+            'walkerId': ccid,
+            "click_action": "FLUTTER_NOTIFICATION_CLICK"
+        },
+        topic=topic,
+    )
+    return 'Sent message ' + str(messaging.send(message))
 
 
 if __name__ == '__main__':
