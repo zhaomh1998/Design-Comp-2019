@@ -72,6 +72,13 @@
             </list>
           </value>
         </entry>
+        <entry key="firebase_messaging">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.0.1+1/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter">
           <value>
             <list>
@@ -160,6 +167,13 @@
           <value>
             <list>
               <option value="$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.5.0/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="platform">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/platform-2.2.0/lib" />
             </list>
           </value>
         </entry>
@@ -253,6 +267,7 @@
       <root url="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-0.10.0+1/lib" />
       <root url="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-0.4.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database-3.0.0/lib" />
+      <root url="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.0.1+1/lib" />
       <root url="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage-3.2.1+1/lib" />
       <root url="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter-0.5.13/lib" />
       <root url="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_webservice-0.0.14/lib" />
@@ -264,6 +279,7 @@
       <root url="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.1.6/lib" />
       <root url="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.6.2/lib" />
       <root url="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.5.0/lib" />
+      <root url="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/platform-2.2.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-2.0.2/lib" />
       <root url="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.5.2/lib" />
       <root url="file://$PROJECT_DIR$/../../../SDK/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.5.5/lib" />

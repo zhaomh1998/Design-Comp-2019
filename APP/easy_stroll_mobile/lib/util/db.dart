@@ -80,6 +80,7 @@ class EasyStrollDB implements DB {
 
   Future<Map> getWalkersData() async {
     List<String> allWalkers = await getAssociateWalkers();
+    updateWalkers(allWalkers);
     Map<String, Map> walkersData = new HashMap();
     for (String walkerId in allWalkers) {
       Map walkerSnapshot;

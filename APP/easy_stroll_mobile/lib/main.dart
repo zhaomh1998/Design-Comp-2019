@@ -8,6 +8,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'util/db.dart';
 import 'util/storage.dart';
 import 'util/var.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'util/fcm.dart';
 
 void main() {
   runApp(new MyApp());
@@ -40,10 +42,34 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+//  FirebaseMessaging _firebaseMessaging = new FirebaseMessaging();
   String _message = "";
   @override
   initState() {
     super.initState();
+    configureFCM(globalFCM);
+    _login(context);
+  }
+
+  void configureFCM(FirebaseMessaging fcm) {
+    fcm.requestNotificationPermissions(
+        const IosNotificationSettings(sound: true, badge: true, alert: true));
+    fcm.configure(
+      onMessage: (Map<String, dynamic> message) {
+        print('on message $message');
+        Navigator.of(context).pushNamed('/analysis');
+      },
+      onResume: (Map<String, dynamic> message) {
+        print('on resume $message');
+        Navigator.of(context).pushNamed('/analysis');
+      },
+      onLaunch: (Map<String, dynamic> message) {
+        print('on launch $message');
+        Navigator.of(context).pushNamed('/analysis');
+      },
+    );
+
+    fcm.subscribeToTopic('all');
   }
 
   @override
