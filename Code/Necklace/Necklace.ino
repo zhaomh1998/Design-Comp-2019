@@ -36,11 +36,10 @@ void setup() {
   }
 
   pinMode(2, OUTPUT);
-  delay(500);
+  sendMsg("SOS");
   digitalWrite(2, HIGH);
   delay(500);
   digitalWrite(2, LOW);
-  sendMsg("SOS");
   Serial.println("Setup done!");
 }
 
@@ -54,5 +53,5 @@ void sendMsg(const char* message) {
 }
 
 void loop() {
-  ESP.deepSleep(999999999*999999999U, WAKE_NO_RFCAL); // shut down until reset
+  ESP.deepSleep(999999999 * 999999999U, WAKE_NO_RFCAL); // shut down until reset
 }

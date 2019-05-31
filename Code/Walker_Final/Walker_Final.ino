@@ -13,6 +13,7 @@
 // OTA Setting
 const char* ssid = "ESOTA";
 bool OTAMode = true;
+bool sosPending = false;
 // Periphral Setting
 #define ES_LED_PIN 13
 #define FONA_PWRKEY 18
@@ -33,14 +34,36 @@ static uint8_t DEBUG_MAC_WALKER[] = {0x36, 0x00, 0x00, 0x66, 0x66, 0x33};
 static uint8_t NECKLACE[] = {0x36, 0x00, 0x00, 0x66, 0x66, 0x34};
 static uint8_t DEBUGGER[] {0x36, 0x00, 0x00, 0x66, 0x66, 0x40};
 
-
+void sos() {
+  uint16_t statuscode;
+  int16_t len;
+  char url[] = "easystroll.appspot.com/sos?ccid=8944501810180175785f";
+  char buf[1000];
+  Serial.println("Trying to get");
+  if (!fona.HTTP_GET_start(url, &statuscode, (uint16_t *)&len)) {
+    sendMsg("GET Failed!");
+  }
+  int16_t counter = len;
+  while (len > 0) {
+    while (fona.available()) {
+      buf[counter - len] = fona.read();
+      len--;
+      if (!len) break;
+    }
+  }
+  buf[counter] = '\0';
+  //  sendMsg(buf);
+  fona.HTTP_GET_end();
+}
 
 void printReceivedMessage(const uint8_t mac[6], const uint8_t* buf, size_t count, void* cbarg) {
   Serial.printf("Message from %02X:%02X:%02X:%02X:%02X:%02X\n", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
-  for (int i = 0; i < count; ++i) {
-    Serial.print(static_cast<char>(buf[i]));
+  Serial.println("Message received");
+  if (mac[5] == NECKLACE[5]) {
+    Serial.println("Send");
+    sosPending = true;
   }
-  Serial.println();
+  //  Serial.println();
 }
 
 void normalModeSetup() {
@@ -123,47 +146,57 @@ void sendMsg(char* message) {
 }
 
 void normalModeLoop() {
-  
-  uint16_t year;
-  uint8_t month, day, hour, minute;
-  float latitude=0, longitude=0, speed_kph=0, heading=0, altitude=0, second=0;
-  sendMsg("Preparing to get GPS");
-  if (fona.getGPS(&latitude, &longitude, &speed_kph, &heading, &altitude)) { // Use this line instead if you don't want UTC time
-    sendMsg("GPS Data success");
-//    Serial.println(F("---------------------"));
-//    Serial.print(F("Latitude: ")); Serial.println(latitude, 6);
-//    Serial.print(F("Longitude: ")); Serial.println(longitude, 6);
-//    Serial.print(F("Speed: ")); Serial.println(speed_kph);
-//    Serial.print(F("Heading: ")); Serial.println(heading);
-//    Serial.print(F("Altitude: ")); Serial.println(altitude);
-  }
-  else
-    sendMsg("GPS Failed");
-  char lat[15];char lon[15];
-  dtostrf(latitude,10,6,lat);
-  dtostrf(longitude,10,6,lon);
+  if (!sosPending) {
+    delay(1000);
+    uint16_t year;
+    uint8_t month, day, hour, minute;
+    float latitude = 0, longitude = 0, speed_kph = 0, heading = 0, altitude = 0, second = 0;
+    sendMsg("Preparing to get GPS");
+    if (fona.getGPS(&latitude, &longitude, &speed_kph, &heading, &altitude)) { // Use this line instead if you don't want UTC time
+      sendMsg("GPS Data success");
 
 
-  uint16_t statuscode;
-  int16_t len;
-  char url[500];
-  char buf[5000];
-  sprintf(url,"easystroll.appspot.com/gps?lat=%s&lon=%s&ccid=8944501810180175785f",lat,lon);
-  if (!fona.HTTP_GET_start(url, &statuscode, (uint16_t *)&len)) {
-    sendMsg("GET Failed!");
-  }
-  int16_t counter = len;
-  while (len > 0) {
-    while (fona.available()) {
-       buf[counter - len] = fona.read();
-       len--;
-       if (!len) break;
+      char lat[15]; char lon[15];
+      dtostrf(latitude, 10, 6, lat);
+      dtostrf(longitude, 10, 6, lon);
+
+
+      uint16_t statuscode;
+      int16_t len;
+      char url[500];
+      char buf[5000];
+      sprintf(url, "easystroll.appspot.com/gps?lat=%s&lon=%s&ccid=8944501810180175785f", lat, lon);
+      if (!fona.HTTP_GET_start(url, &statuscode, (uint16_t *)&len)) {
+        sendMsg("GET Failed!");
+      }
+      int16_t counter = len;
+      while (len > 0) {
+        while (fona.available()) {
+          buf[counter - len] = fona.read();
+          len--;
+          if (!len) break;
+        }
+      }
+      buf[counter] = '\0';
+      sendMsg(buf);
+      fona.HTTP_GET_end();
+
+      //    Serial.println(F("---------------------"));
+      //    Serial.print(F("Latitude: ")); Serial.println(latitude, 6);
+      //    Serial.print(F("Longitude: ")); Serial.println(longitude, 6);
+      //    Serial.print(F("Speed: ")); Serial.println(speed_kph);
+      //    Serial.print(F("Heading: ")); Serial.println(heading);
+      //    Serial.print(F("Altitude: ")); Serial.println(altitude);
     }
-  }
-  buf[counter] = '\0';
-  sendMsg(buf);
-  fona.HTTP_GET_end();
+    else
+      sendMsg("GPS Failed");
 
+    yield();
+  }
+  else {
+    sos();
+    sosPending = false;
+  }
   yield();
 }
 
