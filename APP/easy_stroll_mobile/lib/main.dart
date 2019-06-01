@@ -4,6 +4,7 @@ import 'package:easy_stroll_mobile/ui/signin.dart';
 import 'package:easy_stroll_mobile/util/auth.dart';
 import 'package:easy_stroll_mobile/util/var.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -152,8 +153,15 @@ class HomePage extends StatelessWidget {
   }
 
   void _registerMessage(Map<String, dynamic> message) {
-    print(message['data']['walkerId']);
-    lastSOSWalkerId = message['data']['walkerId'];
+    print("Registering message!");
+    String msgWalkerId = "";
+    if(defaultTargetPlatform == TargetPlatform.iOS) {
+      msgWalkerId = message['walkerId'];
+    }
+    else
+      msgWalkerId = message['data']['walkerId'];
+    print("Msg from walker $msgWalkerId");
+    lastSOSWalkerId = msgWalkerId;
     lastSOSTime = DateTime.now().millisecondsSinceEpoch;
   }
 
