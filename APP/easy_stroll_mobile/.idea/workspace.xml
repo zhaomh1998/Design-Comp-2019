@@ -2,48 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5f4684f-b517-4f84-a6d9-3ead78fd7e5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Quicksand-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Quicksand_Bold.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Quicksand_Book.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Quicksand_Light.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Raleway-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Raleway-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/manrope-bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/manrope-extrabold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/manrope-light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/manrope-medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/manrope-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/manrope-semibold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/manrope-thin.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/blank.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/dashboard.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/login.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/map.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/payment.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/pk.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/profile.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/setting.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/shopping.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/timeline.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/verification.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/credits" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/ui/dev.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/ui/menu.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/ui/menu_view_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/ui/notification_manager.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/util/menu_bloc.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/util/uidata.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/Product-Sans-Regular.ttf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/map.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/map.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/signin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/signin.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/AppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/AppDelegate.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ui/walker_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/walker_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/util/db.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/util/db.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/util/var.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/util/var.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,10 +36,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/ui/walker_manager.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="365">
+              <caret line="150" column="33" selection-start-line="150" selection-start-column="33" selection-end-line="150" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#49#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/ui/map.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="95" column="35" lean-forward="true" selection-start-line="95" selection-start-column="35" selection-end-line="95" selection-end-column="35" />
+            <state relative-caret-position="291">
+              <caret line="90" column="3" selection-start-line="90" selection-start-column="3" selection-end-line="90" selection-end-column="3" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
                 <element signature="e#1086#1340#0" />
@@ -85,9 +61,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/ui/signin.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="187" column="30" selection-start-line="187" selection-start-column="30" selection-end-line="187" selection-end-column="30" />
+              <folding>
+                <element signature="n#FormMode#0" />
+                <element signature="e#442#453#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/util/current_patient.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-81">
+            <state relative-caret-position="-307">
               <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
               <folding>
                 <element signature="e#31#93#0" expanded="true" />
@@ -197,7 +186,6 @@
         <option value="$PROJECT_DIR$/lib/ui/menu.dart" />
         <option value="$PROJECT_DIR$/lib/util/uidata.dart" />
         <option value="$PROJECT_DIR$/lib/ui/dev.dart" />
-        <option value="$PROJECT_DIR$/lib/ui/walker_manager.dart" />
         <option value="$PROJECT_DIR$/lib/ui/signin.dart" />
         <option value="$PROJECT_DIR$/lib/ui/menu_view_model.dart" />
         <option value="$PROJECT_DIR$/lib/main.dart" />
@@ -205,6 +193,7 @@
         <option value="$PROJECT_DIR$/lib/ui/notification_manager.dart" />
         <option value="$PROJECT_DIR$/lib/util/var.dart" />
         <option value="$PROJECT_DIR$/lib/ui/map.dart" />
+        <option value="$PROJECT_DIR$/lib/ui/walker_manager.dart" />
       </list>
     </option>
   </component>
@@ -334,12 +323,12 @@
       <workItem from="1559195630365" duration="2852000" />
       <workItem from="1559268262939" duration="889000" />
       <workItem from="1559331085260" duration="9676000" />
-      <workItem from="1559363907329" duration="9795000" />
+      <workItem from="1559363907329" duration="11306000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137048000" />
+    <option name="totallyTimeSpent" value="138559000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -363,13 +352,13 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32665965" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.6691254" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.47839832" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.43203372" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.4077977" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32899868" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" weight="0.28029504" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.2739726" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.2739726" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.2065332" />
@@ -705,93 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ui/signin.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-          <folding>
-            <element signature="n#FormMode#0" />
-            <element signature="e#442#453#0" />
-            <element signature="e#745#879#0" />
-            <element signature="e#1774#1783#0" />
-            <element signature="e#2185#2310#0" />
-            <element signature="e#2340#2464#0" />
-            <element signature="e#2515#2834#0" />
-            <element signature="e#2538#2547#0" />
-            <element signature="e#2603#2829#0" />
-            <element signature="e#2631#2691#0" />
-            <element signature="e#2658#2680#0" />
-            <element signature="e#2712#2828#0" />
-            <element signature="e#2734#2742#0" />
-            <element signature="e#2868#3003#0" />
-            <element signature="e#2911#2947#0" />
-            <element signature="e#2971#2997#0" />
-            <element signature="e#3041#3611#0" />
-            <element signature="e#3189#3590#0" />
-            <element signature="e#3216#3239#0" />
-            <element signature="e#3268#3322#0" />
-            <element signature="e#3379#3566#0" />
-            <element signature="e#3410#3421#0" />
-            <element signature="e#3519#3528#0" />
-            <element signature="e#3633#4124#0" />
-            <element signature="e#3659#4119#0" />
-            <element signature="e#3692#3698#0" />
-            <element signature="e#3723#4118#0" />
-            <element signature="e#3779#4107#0" />
-            <element signature="e#3833#3841#0" />
-            <element signature="e#4155#4505#0" />
-            <element signature="e#4239#4423#0" />
-            <element signature="e#4288#4414#0" />
-            <element signature="e#4464#4494#0" />
-            <element signature="e#4528#4870#0" />
-            <element signature="e#4549#4865#0" />
-            <element signature="e#4590#4858#0" />
-            <element signature="e#4628#4649#0" />
-            <element signature="e#4678#4849#0" />
-            <element signature="e#4772#4838#0" />
-            <element signature="e#4800#4837#0" />
-            <element signature="e#4899#5431#0" />
-            <element signature="e#4919#5426#0" />
-            <element signature="e#4961#4983#0" />
-            <element signature="e#5015#5419#0" />
-            <element signature="e#5153#5288#0" />
-            <element signature="e#5212#5287#0" />
-            <element signature="e#5463#5980#0" />
-            <element signature="e#5483#5975#0" />
-            <element signature="e#5525#5546#0" />
-            <element signature="e#5578#5968#0" />
-            <element signature="e#5693#5831#0" />
-            <element signature="e#5755#5830#0" />
-            <element signature="e#6009#6434#0" />
-            <element signature="e#6025#6429#0" />
-            <element signature="e#6069#6102#0" />
-            <element signature="e#6120#6413#0" />
-            <element signature="e#6153#6402#0" />
-            <element signature="e#6184#6196#0" />
-            <element signature="e#6467#6912#0" />
-            <element signature="e#6494#6907#0" />
-            <element signature="e#6557#6655#0" />
-            <element signature="e#6609#6654#0" />
-            <element signature="e#6676#6791#0" />
-            <element signature="e#6745#6790#0" />
-            <element signature="e#6944#7617#0" />
-            <element signature="e#6968#7612#0" />
-            <element signature="e#7006#7027#0" />
-            <element signature="e#7052#7611#0" />
-            <element signature="e#7111#7600#0" />
-            <element signature="e#7186#7233#0" />
-            <element signature="e#7226#7232#0" />
-            <element signature="e#7340#7424#0" />
-            <element signature="e#7386#7423#0" />
-            <element signature="e#7451#7544#0" />
-            <element signature="e#7506#7543#0" />
-            <element signature="e#7647#7657#0" />
-            <element signature="e#7678#7696#0" />
-            <element signature="e#7692#7697#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../SDK/flutter/packages/flutter/lib/src/services/platform_messages.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -832,16 +734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ui/walker_manager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="159" column="20" lean-forward="true" selection-start-line="159" selection-start-column="20" selection-end-line="159" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/ui/notification_manager.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -872,9 +764,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/ui/map.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="90" column="3" selection-start-line="90" selection-start-column="3" selection-end-line="90" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#1086#1340#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/ui/signin.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="187" column="30" selection-start-line="187" selection-start-column="30" selection-end-line="187" selection-end-column="30" />
+          <folding>
+            <element signature="n#FormMode#0" />
+            <element signature="e#442#453#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/util/current_patient.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-81">
+        <state relative-caret-position="-307">
           <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
           <folding>
             <element signature="e#31#93#0" expanded="true" />
@@ -882,13 +796,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ui/map.dart">
+    <entry file="file://$PROJECT_DIR$/lib/ui/walker_manager.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="95" column="35" lean-forward="true" selection-start-line="95" selection-start-column="35" selection-end-line="95" selection-end-column="35" />
+        <state relative-caret-position="365">
+          <caret line="150" column="33" selection-start-line="150" selection-start-column="33" selection-end-line="150" selection-end-column="33" />
           <folding>
-            <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#1086#1340#0" />
+            <element signature="e#0#49#0" expanded="true" />
           </folding>
         </state>
       </provider>
