@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../util/auth.dart';
 import '../util/storage.dart';
 import '../util/var.dart';
+import '../util/api_key.dart';
 
 
 
@@ -87,6 +88,44 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
         });
       }
     }
+  }
+
+  void _demoLogin() async {
+    _email = DEMO_EMAIL;    // put this in api_key.dart
+    _password = DEMO_PASS;  // put this in api_key.dart
+    setState(() {
+      _errorMessage = "";
+      _isLoading = true;
+    });
+      String userId = "";
+      try {
+          userId = await widget.auth.signIn(_email, _password);
+          print('Signed in: $userId');
+          _showSnackbar('Signed in: $userId');
+          setUserId(userId);
+          await Future.delayed(Duration(seconds: 2));
+        if(_doSaveCredential)
+          saveCredential(_email, _password, userId);
+        setState(() {
+          _isLoading = false;
+        });
+
+        if (userId.length > 0 && userId != null && _formMode == FormMode.LOGIN) {
+          waitingUserLogin = false;
+          Navigator.pop(context);
+        }
+
+      } catch (e) {
+        print('Error: $e');
+        _showSnackbar('Error: $e');
+        setState(() {
+          _isLoading = false;
+          if (_isIos) {
+            _errorMessage = e.details;
+          } else
+            _errorMessage = e.message;
+        });
+      }
   }
 
 
@@ -252,7 +291,15 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
     return Row(
       children: <Widget>[
         Expanded(
-            child: Container()),
+            child:
+            InkWell(
+              onTap: () {
+                setState(() {
+                  _demoLogin();
+                });
+              },
+              child: Text("Demo account"),
+            )),
         Expanded(
           child: SwitchListTile(
             title: const Text("Remember"),
