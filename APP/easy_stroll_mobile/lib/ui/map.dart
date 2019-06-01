@@ -51,7 +51,15 @@ class _MapPageStates extends State<MapPage> {
             subtitle: Text(patientData['addr']),
           ),
           onTap: ()=>print("Tap!"),
-        )
+        ),
+        InkWell(
+          child: ListTile(
+            leading: Icon(Icons.more_vert),
+            title: Text("View More"),
+            subtitle: Text("Click to load more histrical data"),
+          ),
+          onTap: ()=>_loadMoreData(context)
+        ),
       ],
     );
   }
@@ -82,6 +90,16 @@ class _MapPageStates extends State<MapPage> {
     ));
   }
 
+  void _loadMoreData(BuildContext context) async {
+    DB esDB = await getDB(context);
+    List<Map> recentPos = await esDB.getRecentPos(patientData['ccid'], 100);
+    recentPos.forEach((gpsSample) {
+      print(gpsSample);
+      setState(() {
+        addMarker(gpsSample['time'], readTimestamp(int.parse(gpsSample['time'])), LatLng(gpsSample['lat'], gpsSample['lon']));
+      });
+    });
+  }
 
   void addMarker(String anId, String anSubtitle, LatLng markerPosition) {
     final MarkerId markerId = MarkerId(anId);

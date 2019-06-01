@@ -16,7 +16,8 @@ class _WalkerManagerPageState extends State<WalkerManagerPage> {
 
   @override
   void initState() {
-    _loadData().then((data) {
+    _loadData(context).then((data) {
+      print("Load data done");
       if(data == null) {
         setState(() {
           _isLoading = false;
@@ -74,8 +75,8 @@ class _WalkerManagerPageState extends State<WalkerManagerPage> {
   }
 }
 
-Future<Map> _loadData() async {
-  DB db = getDB();
+Future<Map> _loadData(BuildContext context) async {
+  DB db = await getDB(context);
   var walkerData = await db.getWalkersData();
   return walkerData;
 }

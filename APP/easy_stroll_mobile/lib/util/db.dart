@@ -95,6 +95,7 @@ class EasyStrollDB implements DB {
       else
         walkersData[walkerId]['addr'] = walkerPos.errorMessage ?? "Unknown location";
       walkersData[walkerId]['name'] = walkerName;
+      walkersData[walkerId]['ccid'] = walkerId;
     }
     return walkersData;
   }

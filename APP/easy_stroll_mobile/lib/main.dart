@@ -1,195 +1,185 @@
+import 'package:easy_stroll_mobile/ui/dev.dart';
+import 'package:easy_stroll_mobile/ui/notification_manager.dart';
+import 'package:easy_stroll_mobile/ui/signin.dart';
+import 'package:easy_stroll_mobile/util/auth.dart';
+import 'package:easy_stroll_mobile/util/var.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'ui/map.dart';
-import 'ui/signin.dart';
 import 'ui/walker_manager.dart';
 import 'ui/analysis.dart';
-import 'util/auth.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'util/db.dart';
-import 'util/storage.dart';
-import 'util/var.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+import 'ui/menu.dart';
+import 'util/uidata.dart';
+import 'util/menu_bloc.dart';
 import 'util/fcm.dart';
+import 'ui/notification_manager.dart';
 
 void main() {
   runApp(new MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Easy Stroll',
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: new MyHomePage(title: 'Easy Stroll Landing Page Title'),
-      routes: <String, WidgetBuilder> {
+  final materialApp = MaterialApp(
+      title: UIData.appName,
+      theme: ThemeData(
+          primaryColor: Colors.black,
+          fontFamily: UIData.quickFont,
+          primarySwatch: Colors.amber),
+      debugShowCheckedModeBanner: false,
+      showPerformanceOverlay: false,
+      home: HomePage(),
+      // initialRoute: UIData.notFoundRoute,
+
+      //routes
+      routes: <String, WidgetBuilder>{
         '/map': (BuildContext context) => new MapPage(),
         '/walker' : (BuildContext context) => new WalkerManagerPage(),
         '/analysis' : (BuildContext context) => new AnalysisPage(),
+        '/dev' : (BuildContext context) => new DevPage(),
+        '/notification' : (BuildContext context) => new NotificationManagerPage(),
       },
-    );
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return materialApp;
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
 
-  @override
-  _MyHomePageState createState() => new _MyHomePageState();
-}
 
-class _MyHomePageState extends State<MyHomePage> {
-//  FirebaseMessaging _firebaseMessaging = new FirebaseMessaging();
-  String _message = "";
-  @override
-  initState() {
-    super.initState();
-    configureFCM(globalFCM);
-    _login(context);
+class HomePage extends StatelessWidget {
+  final _scaffoldState = GlobalKey<ScaffoldState>();
+  Size deviceSize;
+  BuildContext _context;
+  //menuStack
+  Widget menuStack(BuildContext context, Menu menu) => InkWell(
+    onTap: () => _routeToPage(context, menu),
+    splashColor: Colors.orange,
+    child: Card(
+      clipBehavior: Clip.antiAlias,
+      elevation: 2.0,
+      child: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          menuImage(menu),
+          menuColor(),
+          menuData(menu),
+        ],
+      ),
+    ),
+  );
+
+  //appbar
+  Widget appBar() => SliverAppBar(
+    backgroundColor: Colors.black,
+    pinned: true,
+    elevation: 10.0,
+    forceElevated: true,
+    expandedHeight: 150.0,
+    flexibleSpace: FlexibleSpaceBar(
+      centerTitle: false,
+      background: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(colors: UIData.kitGradients)),
+      ),
+      title: Row(
+        children: <Widget>[
+          FlutterLogo(
+            colors: Colors.yellow,
+            textColor: Colors.white,
+          ),
+          SizedBox(
+            width: 10.0,
+          ),
+          Text(UIData.appName)
+        ],
+      ),
+    ),
+  );
+
+  //bodygrid
+  Widget bodyGrid(List<Menu> menu) => SliverGrid(
+    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      crossAxisCount:
+      MediaQuery.of(_context).orientation == Orientation.portrait
+          ? 2
+          : 3,
+      mainAxisSpacing: 0.0,
+      crossAxisSpacing: 0.0,
+      childAspectRatio: 1.0,
+    ),
+    delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
+      return menuStack(context, menu[index]);
+    }, childCount: menu.length),
+  );
+
+  Widget homeScaffold(BuildContext context) => Theme(
+    data: Theme.of(context).copyWith(
+      canvasColor: Colors.transparent,
+    ),
+    child: Scaffold(key: _scaffoldState, body: bodySliverList()),
+  );
+
+  Widget bodySliverList() {
+    MenuBloc menuBloc = MenuBloc();
+    return StreamBuilder<List<Menu>>(
+        stream: menuBloc.menuItems,
+        builder: (context, snapshot) {
+          return snapshot.hasData
+              ? CustomScrollView(
+            slivers: <Widget>[
+              appBar(),
+              bodyGrid(snapshot.data),
+            ],
+          )
+              : Center(child: CircularProgressIndicator());
+        });
   }
 
-  void configureFCM(FirebaseMessaging fcm) {
+
+  void _routeToPage(BuildContext context, Menu menu) {
+    Navigator.of(context).pushNamed(menu.routeName);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    _context = context;
+    configureFCM(globalFCM, context);
+    return homeScaffold(context);
+  }
+
+  void _registerMessage(Map<String, dynamic> message) {
+    print(message['data']['walkerId']);
+    lastSOSWalkerId = message['data']['walkerId'];
+    lastSOSTime = DateTime.now().millisecondsSinceEpoch;
+  }
+
+  void configureFCM(FirebaseMessaging fcm, BuildContext context) {
     fcm.requestNotificationPermissions(
         const IosNotificationSettings(sound: true, badge: true, alert: true));
     fcm.configure(
       onMessage: (Map<String, dynamic> message) {
         print('on message $message');
-        Navigator.of(context).pushNamed('/analysis');
+        _registerMessage(message);
+        Navigator.of(context).pushNamed('/notification');
       },
       onResume: (Map<String, dynamic> message) {
         print('on resume $message');
-        Navigator.of(context).pushNamed('/analysis');
+        _registerMessage(message);
+        Navigator.of(context).pushNamed('/notification');
       },
-      onLaunch: (Map<String, dynamic> message) {
-        print('on launch $message');
-        Navigator.of(context).pushNamed('/analysis');
-      },
+//      onLaunch: (Map<String, dynamic> message) {
+//        print('on launch $message');
+////        Navigator.of(context).pushNamed('/analysis');
+//      },
     );
+
+
 
     fcm.subscribeToTopic('all');
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: new AppBar(
-          title: new Text(widget.title),
-        ),
-        body: Center(
-          child: Column(children: <Widget>[
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Column(
-                children: <Widget>[
-                  RaisedButton(
-                    child: const Text('MainPage'),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          new MaterialPageRoute(
-                              builder: (context) => new MapPage()));
-                    },
-                  ), // Map Page
-                  RaisedButton(
-                    child: const Text('LogIn'),
-                    onPressed: () {_login(context);},
-                  ), // Log In Page
-                  RaisedButton(
-                    child: const Text('Walker Manager'),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          new MaterialPageRoute(
-                              builder: (context) => new WalkerManagerPage()));
-                    },
-                  ), // Walker Manager Page
-                  RaisedButton(
-                    child: const Text('Clear auto login'),
-                    onPressed: () {_clearAutoLogin();},
-                  ), // Clear Auto Log In
-                  RaisedButton(
-                    child: const Text('Get DB'),
-                    onPressed: () {_testGetDB();},
-                  ), // Test get DB all
-                  RaisedButton(
-                    child: const Text('Get Pos from DB'),
-                    onPressed: () {_testGetPos();},
-                  ), // Test get Pos
-                  RaisedButton(
-                    child: const Text('Get Pos from Storage'),
-                    onPressed: () {_testGetSavedPos();},
-                  ), // Test get Pos
-                  RaisedButton(
-                    child: const Text('Get uid from program'),
-                    onPressed: () {setState(() {
-                      _message = getUserId();
-                    });},
-                  ), // Display uid
-                  RaisedButton(
-                    child: const Text('Clear msg'),
-                    onPressed: () {setState(() {
-                      _message = "";
-                    });},
-                  ), // Clear Msg
-                ], // Column
-              ),
-            ),
-            Text(_message), // Msg
-          ]),
-        ));
-  }
-
-
-  _login(context) async {
-    Auth fbAuth = new Auth();
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool autoLogin = prefs.getBool('doAutoLogin') ?? false;
-    if(autoLogin) {
-      String uid = await fbAuth.autoSignIn();
-      setUserId(uid);
-      setState(() {
-        _message = "Signed In with id: $uid";
-      });
-    }
-    else {
-      Navigator.push(
-          context,
-          new MaterialPageRoute(
-              builder: (context) => new LoginSignUpPage(fbAuth)
-          )
-      );
-    }
-  }
-
-  _clearAutoLogin() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('doAutoLogin', false);
-  }
-  _testGetDB() async {
-    DB db = getDB();
-    Map db_data = await db.getWalkersData();
-    setState(() {
-      _message = "done";
-    });
-  }
-  _testGetPos() async {
-    DB db = getDB();
-    var pos = await db.getLastPos('8944501810180175785f');
-    saveLoc(pos);
-    setState(() {
-      _message = pos.toString();
-    });
-  }
-  _testGetSavedPos() async {
-    var pos = await loadLoc();
-    setState(() {
-      _message = pos.toString();
-    });
-  }
 }
-
-
-

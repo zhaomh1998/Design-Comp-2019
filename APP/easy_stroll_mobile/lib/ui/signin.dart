@@ -18,6 +18,7 @@ enum FormMode { LOGIN, SIGNUP }
 
 class _LoginSignUpPageState extends State<LoginSignUpPage> {
   final _formKey = new GlobalKey<FormState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   String _email;
   String _password;
@@ -51,13 +52,17 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
         if (_formMode == FormMode.LOGIN) {
           userId = await widget.auth.signIn(_email, _password);
           print('Signed in: $userId');
+          _showSnackbar('Signed in: $userId');
           setUserId(userId);
+          await Future.delayed(Duration(seconds: 2));
         } else {
           userId = await widget.auth.signUp(_email, _password);
 //          widget.auth.sendEmailVerification();
 //          _showVerifyEmailSentDialog();
           print('Signed up user: $userId');
+          _showSnackbar('Signed up user: $userId');
           setUserId(userId);
+          await Future.delayed(Duration(seconds: 2));
         }
         if(_doSaveCredential)
           saveCredential(_email, _password, userId);
@@ -66,11 +71,13 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
         });
 
         if (userId.length > 0 && userId != null && _formMode == FormMode.LOGIN) {
+          waitingUserLogin = false;
           Navigator.pop(context);
         }
 
       } catch (e) {
         print('Error: $e');
+        _showSnackbar('Error: $e');
         setState(() {
           _isLoading = false;
           if (_isIos) {
@@ -88,6 +95,7 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
     _errorMessage = "";
     _isLoading = false;
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _showSnackbar("You must login to continue"));
   }
 
   void _changeFormToSignUp() {
@@ -110,6 +118,7 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
   Widget build(BuildContext context) {
     _isIos = Theme.of(context).platform == TargetPlatform.iOS;
     return new Scaffold(
+        key: _scaffoldKey,
         appBar: new AppBar(
           title: new Text('Flutter login demo'),
         ),
@@ -289,5 +298,10 @@ class _LoginSignUpPageState extends State<LoginSignUpPage> {
             onPressed: _validateAndSubmit,
           ),
         ));
+  }
+
+  _showSnackbar(String msg) {
+    final snackBar = SnackBar(content: Text(msg));
+    _scaffoldKey.currentState.showSnackBar(snackBar);
   }
 }
